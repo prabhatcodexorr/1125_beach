@@ -155,13 +155,12 @@ export default function Header() {
                   <Link
                     key={item.name}
                     href={item.link}
-                    className={`uppercase text-[11px] font-[700] font-manrope-regular tracking-[1.2px] px-5 py-2.5 rounded-full transition-all duration-300 ${
-  isActive
-    ? "bg-[#BC2623] text-white shadow-sm"
-    : isTransparent
-    ? "text-white/90 hover:text-white hover:bg-white/10"
-    : "text-[#4a5866] hover:text-[#BC2623]"
-}`}
+                    className={`uppercase text-[11px] font-[700] font-manrope-regular tracking-[1.2px] px-5 py-2.5 rounded-full transition-all duration-300 ${isActive
+                        ? "bg-[#BC2623] text-white shadow-sm"
+                        : isTransparent
+                          ? "text-white/90 hover:text-white hover:bg-white/10"
+                          : "text-[#4a5866] hover:text-[#BC2623]"
+                      }`}
                   >
                     {item.name}
                   </Link>
