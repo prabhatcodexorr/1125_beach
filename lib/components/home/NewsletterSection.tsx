@@ -20,14 +20,14 @@ export default function NewsletterSection() {
             {/* Heading - Scaled properly for touch devices */}
             <h2
               className="
-    font-ogg-trial
+    font-ogg-regular
     text-white
 
     text-[30px]
     sm:text-[40px]
     lg:text-[48px]
 
-    font-medium
+    font-[500]
 
     leading-[128%]
     tracking-[1px]
@@ -42,7 +42,7 @@ export default function NewsletterSection() {
               className="
     font-jeko-regular
     text-white
-
+        font-[400]
     text-[14px]
     md:text-[15px]
     lg:text-[16px]
@@ -90,7 +90,7 @@ export default function NewsletterSection() {
       shadow-xl
     "
               >
-                <input
+                {/* <input
                   type="email"
                   placeholder="Email Address"
                   className="
@@ -109,34 +109,66 @@ export default function NewsletterSection() {
 
         placeholder:text-[#A3B2C5]
       "
-                />
+                /> */}
+                <input
+  type="email"
+  placeholder="Email Address"
+  className="
+  font-jako-bold
+    flex-1
+    bg-transparent
+    outline-none
 
-                <button
-                  type="submit"
-                  className="
-        w-[48px]
-        h-[48px]
+    text-[14px]
+    md:text-[15px]
+    lg:text-[20px]
 
-        md:w-[58px]
-        md:h-[58px]
+    placeholder:text-[14px]
+    md:placeholder:text-[15px]
+    lg:placeholder:text-[20px]
+    font-[400]
 
-        lg:w-[61px]
-        lg:h-[61px]
+    placeholder:text-[#A3B2C5]
+    text-[#8DA0B8]
+  "
+/>
 
-        rounded-full
+               <button
+  type="submit"
+  className="
+    w-[48px]
+    h-[48px]
 
-        bg-[#BC2623]
-        hover:bg-[#A71F1D]
+    md:w-[58px]
+    md:h-[58px]
 
-        flex
-        items-center
-        justify-center
+    lg:w-[61px]
+    lg:h-[61px]
 
-        transition-all
-      "
-                >
-                  <ArrowRight className="w-5 h-5 text-white" />
-                </button>
+    flex
+    items-center
+    justify-center
+
+    transition-all
+    shrink-0
+  "
+>
+  <svg
+    width="57"
+    height="57"
+    viewBox="0 0 57 57"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="w-full h-full"
+  >
+    <rect width="57" height="57" rx="28.5" fill="#AE2020" />
+
+    <path
+      d="M42.0607 30.0607C42.6464 29.4749 42.6464 28.5251 42.0607 27.9393L32.5147 18.3934C31.9289 17.8076 30.9792 17.8076 30.3934 18.3934C29.8076 18.9792 29.8076 19.9289 30.3934 20.5147L38.8787 29L30.3934 37.4853C29.8076 38.0711 29.8076 39.0208 30.3934 39.6066C30.9792 40.1924 31.9289 40.1924 32.5147 39.6066L42.0607 30.0607ZM17 29V30.5L41 30.5V29V27.5L17 27.5V29Z"
+      fill="#FFFEF8"
+    />
+  </svg>
+</button>
               </div>
             </form>
 

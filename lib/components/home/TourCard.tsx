@@ -21,8 +21,8 @@ export default function TourCard({
   return (
     <div
       className="
-        w-full
-        h-full
+       
+        h-auto
 
         rounded-[18px]
         border border-white/40
@@ -58,17 +58,18 @@ export default function TourCard({
       </div>
 
       {/* Title + Arrow */}
-      <div className="flex items-start justify-between gap-3 mt-5">
+      {/* <div className="flex items-start justify-between gap-3 mt-5"> */}
+      <div className="flex items-center justify-between gap-3 mt-5">
         <h3
           className="
             font-ogg-trial
             text-white
 
-            text-[20px]
+            text-[30px]
             md:text-[22px]
             lg:text-[24px]
 
-            font-medium
+            font-[500]
 
             leading-[128%]
             tracking-[1px]
@@ -82,34 +83,34 @@ export default function TourCard({
         </h3>
 
         <button
-          className="
-            shrink-0
-
-            w-[38px]
-            h-[38px]
-
-            rounded-full
-
-            bg-[#C42823]
-            hover:bg-[#A91F1C]
-
-            flex
-            items-center
-            justify-center
-
-            transition-all
-          "
-        >
-          <ArrowRight
-            size={16}
-            strokeWidth={2.5}
-            color="white"
-          />
-        </button>
+  className="
+    flex-shrink-0
+    w-[31px]
+    h-[31px]
+    rounded-full
+    overflow-hidden
+  "
+>
+  <svg
+    width="31"
+    height="31"
+    viewBox="0 0 31 31"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className="w-[31px] h-[31px]"
+  >
+    <rect width="31" height="31" rx="15.5" fill="#AE2020" />
+    <path
+      d="M23.9571 16.2071C24.3476 15.8166 24.3476 15.1834 23.9571 14.7929L17.5931 8.42893C17.2026 8.03841 16.5695 8.03841 16.1789 8.42893C15.7884 8.81946 15.7884 9.45262 16.1789 9.84315L21.8358 15.5L16.1789 21.1569C15.7884 21.5474 15.7884 22.1805 16.1789 22.5711C16.5695 22.9616 17.2026 22.9616 17.5931 22.5711L23.9571 16.2071ZM7.75 15.5V16.5H23.25V15.5V14.5H7.75V15.5Z"
+      fill="#FFFEF8"
+    />
+  </svg>
+</button>
       </div>
 
       {/* Table Area */}
-      <div className="mt-auto pt-5">
+      {/* <div className="mt-auto pt-5"> */}
+      <div className=" mt-4 pt-5">
         <div className="border-t border-white/30" />
 
         {/* Features Row */}

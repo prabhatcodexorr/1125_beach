@@ -2,7 +2,7 @@
 
 export default function StorySection() {
   return (
-    <section className="bg-[#FFFEF8] py-20 md:py-28 lg:py-[60px] lg:pb-[100px] ">
+    <section className="bg-[#FFFEF8] py-16 md:py-28 lg:py-[60px] lg:pb-[100px] ">
       <div className="max-w-[1100px] mx-auto px-6 flex flex-col items-center text-center">
 
         {/* Logo */}
@@ -31,7 +31,7 @@ export default function StorySection() {
             text-[24px]
             md:text-[30px]
             lg:text-[36px]
-
+            font-[500]
             leading-[128%]
             tracking-[1px]
 
@@ -90,7 +90,7 @@ export default function StorySection() {
             text-white
 
             font-manrope
-            font-bold
+            font-[700]
             text-[14px]
 
             leading-[16px]

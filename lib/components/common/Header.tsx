@@ -13,7 +13,7 @@ import LogoBlue from "@/public/images/logo-blue.svg";
 const menuItems = [
   { name: "Experience", link: "/experience" },
   { name: "Accommodations", link: "/accommodations" },
-  { name: "Our Story", link: "/our-story" },
+  { name: "Our Story", link: "/" },
   { name: "Gallery", link: "/gallery" },
   { name: "Contact", link: "/contact" },
 ];
@@ -30,24 +30,34 @@ export default function Header() {
   return (
     <>
       {/* FIXED: Added dynamic z-index (z-[90] when open) so it stays on top of the backdrop overlay */}
-      <header
-        className={`w-full transition-all duration-300 ${isMobileMenuOpen ? "z-[90] fixed top-0 left-0" : "z-50"
+      {/* <header
+        className={`w-full transition-all duration-300 
+          ${isMobileMenuOpen ? "z-[200] fixed top-0 left-0" : "z-50"
           } ${isTransparent
             ? "absolute top-0 left-0 bg-transparent"
             : "bg-[#FFFEF8] border-b border-[#d7d5cf]"
           }`}
-      >
+      > */}
+      <header
+  className={`w-full transition-all duration-300 z-50
+    ${
+      isTransparent
+        ? "absolute top-0 left-0 bg-transparent"
+        : "bg-[#FFFEF8] border-b border-[#d7d5cf] sticky top-0"
+    }
+  `}
+>
         <div className="max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12">
           <div className="h-[84px] md:h-[95px] flex items-center justify-between gap-4">
 
             {/* LOGO */}
             <Link href="/" className="flex flex-col shrink-0">
-              <div className="w-[75px] sm:w-[85px] md:w-[95px] h-[40px] md:h-[48px]">
+              <div className="w-[120px] sm:w-[120px] md:w-[140px] h-[50px] md:h-[60px]">
                 {isTransparent && !isMobileMenuOpen ? (
 
 
 
-                  <svg width="56" height="52" viewBox="0 0 56 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="56" height="52" className="w-full h-full max-w-[145px] max-h-[68px]" viewBox="0 0 56 52" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_1_3385)">
                       <path d="M1.78624 47.894C1.58075 47.8887 1.42531 47.8861 1.31992 47.8861C1.21981 47.8807 1.12496 47.8781 1.03539 47.8781C0.951083 47.8781 0.866778 47.8807 0.782469 47.8861C0.698165 47.8861 0.582242 47.8887 0.434706 47.894C0.313515 47.8994 0.223939 47.902 0.165979 47.902C0.108018 47.902 0.0526915 47.902 0 47.902V47.6223C0.353034 47.6223 0.566436 47.5823 0.640201 47.5024C0.713971 47.4225 0.756123 47.1828 0.766663 46.7832C0.782469 46.1758 0.790372 45.6989 0.790372 45.3526C0.795644 45.0063 0.798275 44.3084 0.798275 43.2588C0.798275 43.051 0.785105 42.9151 0.758759 42.8512C0.732414 42.7819 0.687625 42.7313 0.624395 42.6993C0.571703 42.678 0.50057 42.6647 0.410995 42.6594C0.321419 42.6487 0.184421 42.6434 0 42.6434V42.3637C0.0421533 42.3637 0.113287 42.3664 0.213401 42.3717C0.313515 42.3717 0.479493 42.3744 0.711335 42.3797C0.869409 42.385 0.974792 42.3877 1.02748 42.3877C1.08018 42.3877 1.11443 42.3877 1.13024 42.3877C1.14604 42.3877 1.1961 42.3877 1.28041 42.3877C1.36471 42.3823 1.53069 42.3797 1.77834 42.3797C2.07342 42.3744 2.27364 42.3717 2.37902 42.3717C2.48441 42.3664 2.55027 42.3637 2.57662 42.3637C3.21419 42.3637 3.68051 42.4622 3.97558 42.6594C4.27066 42.8512 4.41819 43.1575 4.41819 43.5785C4.41819 43.8768 4.29963 44.1432 4.06252 44.3776C3.83068 44.6067 3.51453 44.7719 3.11407 44.8731C3.61464 44.9051 3.99929 45.0436 4.26802 45.2887C4.54202 45.5338 4.67901 45.8641 4.67901 46.2797C4.67901 46.7592 4.47088 47.1508 4.05462 47.4545C3.63835 47.7528 3.07455 47.902 2.36322 47.902C2.30526 47.902 2.23676 47.902 2.15772 47.902C2.07868 47.8967 1.95486 47.894 1.78624 47.894ZM2.34741 42.6754H1.67559C1.5544 42.6754 1.48063 42.71 1.45429 42.7793C1.42794 42.8432 1.41477 43.067 1.41477 43.4506V44.8411H2.33161C2.79002 44.8411 3.13778 44.7479 3.3749 44.5615C3.61201 44.3696 3.73057 44.0899 3.73057 43.7223C3.73057 43.376 3.61464 43.1149 3.3828 42.9391C3.15096 42.7633 2.80583 42.6754 2.34741 42.6754ZM1.35154 47.4705C1.50434 47.4971 1.6914 47.5184 1.9127 47.5344C2.13401 47.5504 2.37112 47.5584 2.62404 47.5584C3.1088 47.5584 3.45657 47.4705 3.66734 47.2946C3.88337 47.1135 3.99139 46.8258 3.99139 46.4315C3.99139 46.0053 3.84122 45.683 3.54087 45.4645C3.24053 45.2461 2.79793 45.1368 2.21305 45.1368H1.41477V46.3596C1.41477 46.626 1.4095 46.8577 1.39896 47.0549C1.38843 47.2467 1.37261 47.3852 1.35154 47.4705Z" fill="white" />
                       <path d="M8.79489 47.9819C8.24688 47.9819 7.80952 47.8114 7.48287 47.4705C7.16143 47.1295 7.00073 46.6899 7.00073 46.1518C7.00073 45.5338 7.21678 44.993 7.64883 44.5295C8.08092 44.0606 8.59726 43.8262 9.19795 43.8262C9.57732 43.8262 9.88298 43.9247 10.1148 44.1219C10.3519 44.319 10.4705 44.5668 10.4705 44.8651C10.4705 45.0569 10.4309 45.2008 10.3519 45.2967C10.2781 45.3926 10.1675 45.4405 10.0199 45.4405L7.64093 45.4485C7.63567 45.5125 7.63041 45.5657 7.6251 45.6084C7.6251 45.651 7.6251 45.691 7.6251 45.7283C7.6251 46.2504 7.75685 46.6686 8.02031 46.983C8.28377 47.292 8.63152 47.4465 9.06361 47.4465C9.39027 47.4465 9.66167 47.3799 9.87767 47.2467C10.099 47.1082 10.315 46.8711 10.5258 46.5354L10.6523 46.6153C10.51 47.0362 10.2702 47.3692 9.93302 47.6143C9.60105 47.8594 9.22168 47.9819 8.79489 47.9819ZM9.74333 44.8252C9.74333 44.6227 9.67219 44.4629 9.52991 44.3457C9.39295 44.2284 9.19532 44.1698 8.93712 44.1698C8.62626 44.1698 8.35754 44.2658 8.13096 44.4575C7.90965 44.6493 7.75948 44.9104 7.68045 45.2408C8.18627 45.2354 8.54985 45.2301 8.77116 45.2248C8.99247 45.2141 9.18479 45.2008 9.34812 45.1848C9.42715 45.1741 9.4904 45.1608 9.53781 45.1448C9.59053 45.1288 9.63004 45.1075 9.65641 45.0809C9.68798 45.0489 9.70908 45.0143 9.7196 44.977C9.73544 44.9344 9.74333 44.8838 9.74333 44.8252Z" fill="white" />
@@ -96,7 +106,7 @@ export default function Header() {
 
                 ) : (
 
-                  <svg width="56" height="52" viewBox="0 0 56 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="56" height="52" className="w-full h-full max-w-[145px] max-h-[68px]" viewBox="0 0 56 52" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_1_2297)">
                       <path d="M1.78624 47.894C1.58075 47.8887 1.42531 47.8861 1.31992 47.8861C1.21981 47.8807 1.12496 47.8781 1.03539 47.8781C0.951083 47.8781 0.866778 47.8807 0.782469 47.8861C0.698165 47.8861 0.582242 47.8887 0.434706 47.894C0.313515 47.8994 0.223939 47.902 0.165979 47.902C0.108018 47.902 0.0526915 47.902 0 47.902V47.6223C0.353034 47.6223 0.566436 47.5823 0.640201 47.5024C0.713971 47.4225 0.756123 47.1828 0.766663 46.7832C0.782469 46.1758 0.790372 45.6989 0.790372 45.3526C0.795644 45.0063 0.798275 44.3084 0.798275 43.2588C0.798275 43.051 0.785105 42.9151 0.758759 42.8512C0.732414 42.7819 0.687625 42.7313 0.624395 42.6993C0.571703 42.678 0.50057 42.6647 0.410995 42.6594C0.321419 42.6487 0.184421 42.6434 0 42.6434V42.3637C0.0421533 42.3637 0.113287 42.3664 0.213401 42.3717C0.313515 42.3717 0.479493 42.3744 0.711335 42.3797C0.869409 42.385 0.974792 42.3877 1.02748 42.3877C1.08018 42.3877 1.11443 42.3877 1.13024 42.3877C1.14604 42.3877 1.1961 42.3877 1.28041 42.3877C1.36471 42.3823 1.53069 42.3797 1.77834 42.3797C2.07342 42.3744 2.27364 42.3717 2.37902 42.3717C2.48441 42.3664 2.55027 42.3637 2.57662 42.3637C3.21419 42.3637 3.68051 42.4622 3.97558 42.6594C4.27066 42.8512 4.41819 43.1575 4.41819 43.5785C4.41819 43.8768 4.29963 44.1432 4.06252 44.3776C3.83068 44.6067 3.51453 44.7719 3.11407 44.8731C3.61464 44.9051 3.99929 45.0436 4.26802 45.2887C4.54202 45.5338 4.67901 45.8641 4.67901 46.2797C4.67901 46.7592 4.47088 47.1508 4.05462 47.4545C3.63835 47.7528 3.07455 47.902 2.36322 47.902C2.30526 47.902 2.23676 47.902 2.15772 47.902C2.07868 47.8967 1.95486 47.894 1.78624 47.894ZM2.34741 42.6754H1.67559C1.5544 42.6754 1.48063 42.71 1.45429 42.7793C1.42794 42.8432 1.41477 43.067 1.41477 43.4506V44.8411H2.33161C2.79002 44.8411 3.13778 44.7479 3.3749 44.5615C3.61201 44.3696 3.73057 44.0899 3.73057 43.7223C3.73057 43.376 3.61464 43.1149 3.3828 42.9391C3.15096 42.7633 2.80583 42.6754 2.34741 42.6754ZM1.35154 47.4705C1.50434 47.4971 1.6914 47.5184 1.9127 47.5344C2.13401 47.5504 2.37112 47.5584 2.62404 47.5584C3.1088 47.5584 3.45657 47.4705 3.66734 47.2946C3.88337 47.1135 3.99139 46.8258 3.99139 46.4315C3.99139 46.0053 3.84122 45.683 3.54087 45.4645C3.24053 45.2461 2.79793 45.1368 2.21305 45.1368H1.41477V46.3596C1.41477 46.626 1.4095 46.8577 1.39896 47.0549C1.38843 47.2467 1.37261 47.3852 1.35154 47.4705Z" fill="#66839C" />
                       <path d="M8.79477 47.9819C8.24676 47.9819 7.8094 47.8114 7.48275 47.4705C7.16131 47.1295 7.00061 46.6899 7.00061 46.1518C7.00061 45.5338 7.21666 44.993 7.6487 44.5295C8.0808 44.0606 8.59714 43.8262 9.19783 43.8262C9.5772 43.8262 9.88286 43.9247 10.1147 44.1219C10.3518 44.319 10.4703 44.5668 10.4703 44.8651C10.4703 45.0569 10.4308 45.2008 10.3518 45.2967C10.278 45.3926 10.1674 45.4405 10.0198 45.4405L7.64081 45.4485C7.63555 45.5125 7.63029 45.5657 7.62497 45.6084C7.62497 45.651 7.62497 45.691 7.62497 45.7283C7.62497 46.2504 7.75673 46.6686 8.02019 46.983C8.28364 47.292 8.6314 47.4465 9.06349 47.4465C9.39014 47.4465 9.66155 47.3799 9.87754 47.2467C10.0989 47.1082 10.3149 46.8711 10.5257 46.5354L10.6521 46.6153C10.5099 47.0362 10.2701 47.3692 9.9329 47.6143C9.60093 47.8594 9.22156 47.9819 8.79477 47.9819ZM9.74321 44.8252C9.74321 44.6227 9.67207 44.4629 9.52979 44.3457C9.39283 44.2284 9.1952 44.1698 8.937 44.1698C8.62613 44.1698 8.35741 44.2658 8.13084 44.4575C7.90953 44.6493 7.75936 44.9104 7.68033 45.2408C8.18614 45.2354 8.54973 45.2301 8.77104 45.2248C8.99235 45.2141 9.18467 45.2008 9.348 45.1848C9.42703 45.1741 9.49028 45.1608 9.53768 45.1448C9.59041 45.1288 9.62992 45.1075 9.65628 45.0809C9.68786 45.0489 9.70895 45.0143 9.71948 44.977C9.73532 44.9344 9.74321 44.8838 9.74321 44.8252Z" fill="#66839C" />
@@ -156,10 +166,10 @@ export default function Header() {
                     key={item.name}
                     href={item.link}
                     className={`uppercase text-[11px] font-[700] font-manrope-regular tracking-[1.2px] px-5 py-2.5 rounded-full transition-all duration-300 ${isActive
-                        ? "bg-[#BC2623] text-white shadow-sm"
-                        : isTransparent
-                          ? "text-white/90 hover:text-white hover:bg-white/10"
-                          : "text-[#4a5866] hover:text-[#BC2623]"
+                      ? "bg-[#BC2623] text-white shadow-sm"
+                      : isTransparent
+                        ? "text-white/90 hover:text-white hover:bg-white/10"
+                        : "text-[#4a5866] hover:text-[#BC2623]"
                       }`}
                   >
                     {item.name}
@@ -170,7 +180,7 @@ export default function Header() {
 
             {/* Right Action Block */}
             <div className="flex items-center gap-4">
-              <button className="bg-[#BC2623] hover:bg-[#a71f1d] z-50 font-manrope-regular active:scale-95 transition text-white rounded-full px-5 py-3 md:px-7 md:py-3.5 uppercase font-medium tracking-[1.5px] text-[10px] md:text-[11px] whitespace-nowrap shadow-sm">
+              <button className="bg-[#BC2623] hover:bg-[#a71f1d] z-10000 font-manrope-regular active:scale-95 transition text-white rounded-full px-5 py-3 md:px-7 md:py-3.5 uppercase font-[700] font-bold tracking-[1.5px] text-[12px] md:text-[11px] whitespace-nowrap shadow-sm">
                 Book A Stay
               </button>
 
@@ -180,7 +190,7 @@ export default function Header() {
                 aria-expanded={isMobileMenuOpen}
                 aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="lg:hidden p-2 rounded-lg focus:outline-none transition-colors relative z-[100]"
+                className="lg:hidden p-2 rounded-lg focus:outline-none transition-colors relative z-[1000]"
               >
                 <div className="w-6 h-4 flex flex-col justify-between relative">
                   <span
@@ -217,7 +227,7 @@ export default function Header() {
 
       {/* Slide-out Mobile Drawer Menu Overlay */}
       <div
-        className={`fixed inset-0 z-[70] lg:hidden transition-all duration-300 ${isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+        className={`fixed inset-0 z-[100] lg:hidden transition-all duration-300 ${isMobileMenuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
           }`}
       >
         {/* Backdrop filter blur shadow effect */}
@@ -231,10 +241,10 @@ export default function Header() {
           className={`absolute right-0 top-0 bottom-0 z-[71] w-[280px] bg-[#FFFEF8] shadow-2xl p-8 flex flex-col justify-between transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
             }`}
         >
-          <div className="flex flex-col gap-8 pt-16">
-            <p className="text-[10px] uppercase font-bold font-manrope-regular tracking-[3px] text-gray-400 border-b border-gray-200/60 pb-2">
+          <div className="flex flex-col gap-8 pt-10">
+            {/* <p className="text-[10px] uppercase font-bold font-manrope-regular tracking-[3px] text-gray-400 border-b border-gray-200/60 pb-2">
               Navigation
-            </p>
+            </p> */}
             <nav className="flex flex-col gap-4">
               {menuItems.map((item) => {
                 const isActive = pathname.startsWith(item.link);
@@ -255,9 +265,9 @@ export default function Header() {
             </nav>
           </div>
 
-          <div className="text-[11px] text-gray-400 tracking-wider font-light">
+          {/* <div className="text-[11px] text-gray-400 tracking-wider font-light">
             © 2026 Eleven Twenty-Five <br />Beach Villa
-          </div>
+          </div> */}
         </div>
       </div>
     </>

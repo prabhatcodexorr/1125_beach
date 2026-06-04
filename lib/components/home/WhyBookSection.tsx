@@ -48,7 +48,7 @@ export default function WhyBookSection() {
                 text-center
                 lg:text-left
 
-                text-[54px]
+                text-[60px]
                 sm:text-[72px]
                 lg:text-[96px]
 
@@ -62,7 +62,7 @@ export default function WhyBookSection() {
             >
               Why Book
               <br />
-              <span className="block lg:ml-[110px]">
+              <span className="block lg:ml-[110px] ml-[110px] mt-4">
                 With Us?
               </span>
             </h2>
