@@ -103,7 +103,7 @@ export default function TourSection() {
                 // FIXED: Card wrapper gets snap-start or snap-center alignment so it smoothly drops into place
                 className="w-[280px] sm:w-[300px] lg:w-[330px] shrink-0 snap-start snap-always transform will-change-transform"
               >
-                <div className="border border-white/30 rounded-[18px] p-[14px] bg-white/[0.06] backdrop-blur-[8px] flex flex-col h-[450px] lg:h-[500px] w-full shadow-sm">
+                <div className="border border-white rounded-[18px] p-[14px] bg-white/[0.06] backdrop-blur-[8px] flex flex-col h-[450px] lg:h-[500px] w-full shadow-sm">
                   <div>
                     <div className="relative aspect-[246/218] w-full overflow-hidden rounded-[8px] pointer-events-none select-none">
                       <Image

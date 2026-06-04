@@ -26,7 +26,7 @@ export default function GalleryPage() {
     return (
         <main className="bg-[#FFFEF8] min-h-screen">
             {/* Hero */}
-            <section className="px-4 mt-4">
+            <section className="px-4 mt-4 overflow-hidden">
                 <div className="relative h-[350px] md:h-[420px] overflow-hidden rounded-2xl">
                     <Image
                         src="/images/gallery-banner.jpg"
@@ -39,7 +39,7 @@ export default function GalleryPage() {
                     <div className="absolute inset-0 bg-black/20" />
 
                     <div className="absolute inset-0 flex items-center justify-center">
-                        <h1 className="font-ogg-regular  text-white text-5xl md:text-7xl">
+                        <h1 className="font-ogg-regular  text-white text-[50px] md:text-[65px] font-[400] text-center">
                             Gallery
                         </h1>
                     </div>
@@ -62,15 +62,16 @@ export default function GalleryPage() {
     rounded-full 
     uppercase 
     font-semibold 
-    font-sans                  /* Agat pure setup mein Manrope global config hai, nahi toh custom class likhein */
-    text-[13px]                /* FIXED: Figma Exact 13px font size */
-    leading-[19.5px]           /* FIXED: Figma Exact 19.5px line-height */
-    tracking-[0.4px]           /* FIXED: Figma Exact 0.4px letter-spacing */
+    font-sans                
+    text-[13px]  
+    font-[700]              
+    leading-[19.5px]           
+    tracking-[0.4px]          
     transition-all 
     duration-200
     ${index === 0
-                                            ? "bg-white text-[#7c95b0]"
-                                            : "text-white hover:bg-white/10"
+                                            ? "bg-white text-[#66839C]"
+                                            : "text-[#FFFEF8B2] hover:bg-white/10"
                                         }
   `}
                                 >
