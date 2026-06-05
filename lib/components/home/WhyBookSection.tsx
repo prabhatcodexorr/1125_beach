@@ -45,7 +45,7 @@ export default function WhyBookSection() {
                 text-[#66839C]
                 font-normal
 
-                text-center
+                text-left
                 lg:text-left
 
                 text-[60px]
@@ -79,7 +79,7 @@ export default function WhyBookSection() {
                 text-[#66839C]
                 font-normal
 
-                text-[24px]
+                text-[26px]
                 sm:text-[28px]
                 lg:text-[34px]
 
@@ -128,7 +128,7 @@ export default function WhyBookSection() {
                     className="
     font-jako-bold
 
-    text-[12px]
+    text-[14px]
     sm:text-[14px]
     lg:text-[18px]
 
@@ -145,7 +145,7 @@ export default function WhyBookSection() {
                     className="
     font-jeko-medium
 
-    text-[13px]
+    text-[15px]
     sm:text-[14px]
     lg:text-[15px]
 

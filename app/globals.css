@@ -4,6 +4,7 @@ body {
   background: #f5f3ed;
 }
 
+
 @font-face {
   font-family: "ogg-trial";
   src: url("/fonts/OggTRIAL.eot");
@@ -301,4 +302,50 @@ body {
   border:none;
   outline:none;
   width:100%;
+}
+
+/* Hide scrollbar but keep scrolling */
+
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE & Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; /* Chrome, Safari */
+}
+
+/* Calendar Size - Medium */
+
+.react-datepicker {
+  font-size: 14px !important;
+}
+
+.react-datepicker__month-container {
+  width: 300px;
+}
+
+.react-datepicker__day,
+.react-datepicker__day-name {
+  width: 2.4rem !important;
+  line-height: 2.4rem !important;
+  margin: 0.1rem !important;
+}
+
+.react-datepicker__current-month {
+  font-size: 16px !important;
+  padding-bottom: 6px;
+}
+
+.react-datepicker__navigation {
+  top: 10px !important;
+}
+
+
+
+.newsletter-glass {
+    background: rgba(255, 255, 255, 0.88);
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
 }

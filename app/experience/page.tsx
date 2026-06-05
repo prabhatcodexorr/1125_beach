@@ -14,7 +14,7 @@ export default function EventsPage() {
             className="object-cover"
           />
 
-          <div className="absolute inset-0 bg-black/20" />
+          <div className="absolute inset-0 bg-[#000]/40" />
 
           <div className="absolute inset-0 flex items-center justify-center">
              <h1 className="font-serif text-white text-[45px] md:text-[65px] font-[400] font-ogg-regular text-center tracking-wide leading-none">
@@ -123,11 +123,11 @@ export default function EventsPage() {
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 mt-10">
-            <button className="bg-[#AE2020] text-white px-8 py-4 rounded-full uppercase text-[12px] font-[700] tracking-[2px]">
+            <button className="bg-[#AE2020] text-white px-8 py-4 rounded-full uppercase text-[12px] font-[700] tracking-[2px] font-manrope-regular">
               Enquire Now
             </button>
 
-            <button className="border border-black px-8 py-4 text-[#242424]  rounded-full text-[12px] font-[700]">
+            <button className="border border-black px-8 py-4 text-[#242424]  rounded-full text-[12px] font-[700] font-manrope-regular">
               +233 (0) 502 000 000
             </button>
           </div>

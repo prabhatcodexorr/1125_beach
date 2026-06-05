@@ -172,7 +172,7 @@ export default function Header() {
 
             {/* Desktop Navigation */}
             <nav className="hidden lg:flex items-center xl:gap-2 lg:gap-0.5 bg-transparent ">
-              
+
               {menuItems.map((item) => {
                 // const isActive = pathname.startsWith(item.link);
                 const isActive =
@@ -187,7 +187,7 @@ export default function Header() {
                     className={`uppercase text-[11px] font-[700] font-manrope-regular tracking-[1.2px] px-5 py-2.5 rounded-full transition-all duration-300 ${isActive
                       ? "bg-[#BC2623] text-white shadow-sm"
                       : isTransparent
-                        ? "text-white/90 hover:text-white hover:bg-white/10"
+                        ? "text-[#FFFFFF] hover:text-white hover:bg-white/10"
                         : "text-[#4a5866] hover:text-[#BC2623]"
                       }`}
                   >
@@ -203,11 +203,11 @@ export default function Header() {
                 Book A Stay
               </button> */}
               <Link
-  href="/accommodations/the-villa"
-  className="bg-[#BC2623] hover:bg-[#a71f1d] z-[10000] font-manrope-regular active:scale-95 transition text-white rounded-full px-5 py-3 md:px-7 md:py-3.5 uppercase font-[700] tracking-[1.5px] text-[11px] md:text-[11px] whitespace-nowrap shadow-sm"
->
-  Book A Stay
-</Link>
+                href="/accommodations/the-villa"
+                className="bg-[#BC2623] hover:bg-[#a71f1d] z-[10000] font-manrope-regular active:scale-95 transition text-white rounded-full px-5 py-3 md:px-7 md:py-3.5 uppercase font-[700] tracking-[1.5px] text-[11px] md:text-[11px] whitespace-nowrap shadow-sm"
+              >
+                Book A Stay
+              </Link>
 
               {/* Mobile Menu Toggle Button */}
               <button
@@ -218,7 +218,7 @@ export default function Header() {
                 className="lg:hidden p-2 rounded-lg focus:outline-none transition-colors relative z-[1000]"
               >
                 <div className="w-6 h-4 flex flex-col justify-between relative">
-                  <span
+                  {/* <span
                     className={`w-full h-[2px] rounded transition-all duration-300 ${isMobileMenuOpen
                       ? "rotate-45 translate-y-[7px] bg-[#BC2623]"
                       : isTransparent
@@ -241,7 +241,31 @@ export default function Header() {
                         ? "bg-white"
                         : "bg-[#4a5866]"
                       }`}
-                  />
+                  /> */}
+                  <button
+  type="button"
+  aria-label="Open menu"
+  onClick={() => setIsMobileMenuOpen(true)}
+  className="lg:hidden  rounded-lg focus:outline-none relative z-[1000]"
+>
+  <div className="w-6 h-4 flex flex-col justify-between">
+    <span
+      className={`w-full h-[2px] rounded ${
+        isTransparent ? "bg-white" : "bg-[#4a5866]"
+      }`}
+    />
+    <span
+      className={`w-full h-[2px] rounded ${
+        isTransparent ? "bg-white" : "bg-[#4a5866]"
+      }`}
+    />
+    <span
+      className={`w-full h-[2px] rounded ${
+        isTransparent ? "bg-white" : "bg-[#4a5866]"
+      }`}
+    />
+  </div>
+</button>
                 </div>
               </button>
             </div>
@@ -266,6 +290,27 @@ export default function Header() {
           className={`absolute right-0 top-0 bottom-0 z-[71] w-[280px] bg-[#FFFEF8] shadow-2xl p-8 flex flex-col justify-between transform transition-transform duration-300 ease-in-out ${isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
             }`}
         >
+
+          {/* Close Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(false)}
+            className="absolute top-5 right-5 w-10 h-10 flex items-center justify-center"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#BC2623"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
+          </button>
           <div className="flex flex-col gap-8 pt-10">
             {/* <p className="text-[10px] uppercase font-bold font-manrope-regular tracking-[3px] text-gray-400 border-b border-gray-200/60 pb-2">
               Navigation

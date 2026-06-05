@@ -114,7 +114,7 @@ export default function Hero() {
                            type="submit"
                            className="
         h-[48px]
-        w-[145px]
+        w-[155px]
         rounded-full
         bg-[#BC2623]
         hover:bg-[#a71f1d]
@@ -199,7 +199,7 @@ export default function Hero() {
                   <form className="mt-12 w-[680px] h-[62px] rounded-[51px] bg-white p-[4px] shadow-xl">
                      <div className="flex items-center justify-between h-full">
                         <div className="flex-1 pl-8">
-                           <DatePicker
+                           {/* <DatePicker
                               selected={date}
                               onChange={handleDateChange}
                               placeholderText="Select Date"
@@ -210,17 +210,35 @@ export default function Hero() {
                      outline-none
                      text-[#7F92AA]
                      text-[14px]
-                     font-semibold
+                     font-[700]
                      cursor-pointer
+                     font-manrope-regular
                      "
-                           />
+                           /> */}
+                           <DatePicker
+  selected={date}
+  onChange={handleDateChange}
+  placeholderText="Select Date"
+  dateFormat="yyyy-MM-dd"
+  className="
+    w-full
+    h-[54px]
+    leading-[54px]
+    bg-transparent
+    outline-none
+    text-[#7F92AA]
+    text-[14px]
+    font-[700]
+    font-manrope-regular
+  "
+/>
                         </div>
                         <button
                            type="submit"
                            className="
 
                      h-[54px]
-                     w-[160px]
+                     w-[190px]
                      rounded-full
                      bg-[#BC2623]
                      hover:bg-[#a71f1d]

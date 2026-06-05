@@ -30,7 +30,7 @@ export default async function AccommodationDetailPage({
                         className="object-cover"
                     />
 
-                    <div className="absolute inset-0 bg-black/20" />
+                    <div className="absolute inset-0 bg-black/40" />
 
                     <div className="absolute inset-0 flex items-center justify-center">
                         <h1 className="font-serif text-white text-[45px] md:text-[65px] font-[400] font-ogg-regular text-center tracking-wide leading-none">

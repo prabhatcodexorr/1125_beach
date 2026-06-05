@@ -89,7 +89,7 @@ export default function StorySection() {
 
             text-white
 
-            font-manrope
+            font-manrope-regular
             font-[700]
             text-[14px]
 

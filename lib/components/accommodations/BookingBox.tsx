@@ -43,12 +43,17 @@ export default function BookingBox() {
     };
 
     return (
+        // <div
+        //     ref={dropdownRef}
+        //     className="grid grid-cols-3 relative"
+        // >
         <div
-            ref={dropdownRef}
-            className="grid grid-cols-3 relative"
-        >
+    ref={dropdownRef}
+    className="grid grid-cols-1 md:grid-cols-3 relative gap-4 md:gap-0"
+>
             {/* Check In */}
-            <div className="pr-2 sm:pr-6 border-r border-[#D8D0C8] relative">
+            {/* <div className="pr-2 sm:pr-6 border-r border-[#D8D0C8] relative"> */}
+            <div className="pb-4 md:pb-0 md:pr-6 border-b md:border-b-0 md:border-r border-[#D8D0C8] relative">
                 <p className="text-[10px] sm:text-[11px] lg:text-[12px] uppercase tracking-[2px] text-[#A69C94] mb-2 font-jako-regular">
                     Check In
                 </p>
@@ -82,7 +87,8 @@ export default function BookingBox() {
                 </button>
 
                 {activeDropdown === "checkin" && (
-                    <div className="absolute top-full left-0 mt-2 z-50">
+                    // <div className="absolute top-full left-0 mt-2 z-50">
+                    <div className="absolute top-full left-0 mt-2 z-50 scale-[0.85] md:scale-100 origin-top-left">
                         <DatePicker
                             selected={checkIn}
                             dateFormat="yyyy-MM-dd"
@@ -99,7 +105,8 @@ export default function BookingBox() {
             </div>
 
             {/* Check Out */}
-            <div className="px-2 sm:px-6 border-r border-[#D8D0C8] relative">
+            {/* <div className="px-2 sm:px-6 border-r border-[#D8D0C8] relative"> */}
+            <div className="py-4 md:py-0 md:px-6 border-b md:border-b-0 md:border-r border-[#D8D0C8] relative">
                 <p className="text-[10px] sm:text-[11px] lg:text-[12px] uppercase tracking-[2px] text-[#A69C94] mb-2 font-jako-regular">
                     Check Out
                 </p>
@@ -151,7 +158,8 @@ export default function BookingBox() {
             </div>
 
             {/* Guests */}
-            <div className="pl-2 sm:pl-6 relative">
+            {/* <div className="pl-2 sm:pl-6 relative"> */}
+            <div className="pt-4 md:pt-0 md:pl-6 relative">
                 <p className="text-[10px] sm:text-[11px] lg:text-[12px] uppercase tracking-[2px] text-[#A69C94] mb-2 font-jako-regular">
                     Guests
                 </p>
