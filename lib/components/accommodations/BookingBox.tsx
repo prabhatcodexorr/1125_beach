@@ -43,17 +43,12 @@ export default function BookingBox() {
     };
 
     return (
-        // <div
-        //     ref={dropdownRef}
-        //     className="grid grid-cols-3 relative"
-        // >
         <div
-    ref={dropdownRef}
-    className="grid grid-cols-1 md:grid-cols-3 relative gap-4 md:gap-0 "
->
-            {/* Check In */}
-            {/* <div className="pr-2 sm:pr-6 border-r border-[#D8D0C8] relative"> */}
-            <div className="pb-4 md:pb-0 md:pr-6 border-b md:border-b-0 md:border-r border-[#D8D0C8] relative">
+            ref={dropdownRef}
+            className="grid grid-cols-1 md:grid-cols-3 relative gap-4 md:gap-0 w-full"
+        >
+            {/* 1. Check In */}
+            <div className="pb-4 md:pb-0 md:pr-6 border-b md:border-b-0 md:border-r border-[#D8D0C8] relative w-full flex flex-col justify-between">
                 <p className="text-[10px] sm:text-[11px] lg:text-[12px] uppercase tracking-[2px] text-[#A69C94] mb-2 font-jako-regular">
                     Check In
                 </p>
@@ -64,15 +59,16 @@ export default function BookingBox() {
                             activeDropdown === "checkin" ? null : "checkin"
                         )
                     }
-                    className="w-full flex items-center justify-between"
+                    className="w-full flex items-center justify-between text-left font-jako-bold text-[14px] font-[400]"
                 >
                     <span className="text-[#BC2623] text-[13px] sm:text-[14px]">
                         {formatDate(checkIn)}
                     </span>
 
                     <svg
-                        className={`w-4 h-4 transition ${activeDropdown === "checkin" ? "rotate-180" : ""
-                            }`}
+                        className={`w-4 h-4 transition-transform duration-200 ml-2 shrink-0 ${
+                            activeDropdown === "checkin" ? "rotate-180" : ""
+                        }`}
                         fill="none"
                         stroke="currentColor"
                         strokeWidth="2"
@@ -87,7 +83,6 @@ export default function BookingBox() {
                 </button>
 
                 {activeDropdown === "checkin" && (
-                    // <div className="absolute top-full left-0 mt-2 z-50">
                     <div className="absolute top-full left-0 mt-2 z-[99999] scale-[0.85] md:scale-100 origin-top-left">
                         <DatePicker
                             selected={checkIn}
@@ -104,9 +99,8 @@ export default function BookingBox() {
                 )}
             </div>
 
-            {/* Check Out */}
-            {/* <div className="px-2 sm:px-6 border-r border-[#D8D0C8] relative"> */}
-            <div className="py-4 md:py-0 md:px-6 border-b md:border-b-0 md:border-r border-[#D8D0C8] relative">
+            {/* 2. Check Out */}
+            <div className="py-4 md:py-0 md:px-[12px] border-b md:border-b-0 md:border-r border-[#D8D0C8] relative w-full flex flex-col justify-between">
                 <p className="text-[10px] sm:text-[11px] lg:text-[12px] uppercase tracking-[2px] text-[#A69C94] mb-2 font-jako-regular">
                     Check Out
                 </p>
@@ -117,15 +111,16 @@ export default function BookingBox() {
                             activeDropdown === "checkout" ? null : "checkout"
                         )
                     }
-                    className="w-full flex items-center justify-between"
+                    className="w-full flex items-center justify-between text-left font-jako-bold text-[14px] font-[400]"
                 >
-                    <span className="text-[#BC2623] text-[13px] sm:text-[14px]">
+                    <span className="text-[#BC2623] text-[13px] sm:text-[14px] ">
                         {formatDate(checkOut)}
                     </span>
 
                     <svg
-                        className={`w-4 h-4 transition ${activeDropdown === "checkout" ? "rotate-180" : ""
-                            }`}
+                        className={`w-4 h-4 transition-transform duration-200 ml-2 shrink-0 ${
+                            activeDropdown === "checkout" ? "rotate-180" : ""
+                        }`}
                         fill="none"
                         stroke="currentColor"
                         strokeWidth="2"
@@ -157,9 +152,8 @@ export default function BookingBox() {
                 )}
             </div>
 
-            {/* Guests */}
-            {/* <div className="pl-2 sm:pl-6 relative"> */}
-            <div className="pt-4 md:pt-0 md:pl-6 relative">
+            {/* 3. Guests */}
+            <div className="pt-4 md:pt-0 md:pl-[28px] md:mr-4 relative w-full flex flex-col justify-between">
                 <p className="text-[10px] sm:text-[11px] lg:text-[12px] uppercase tracking-[2px] text-[#A69C94] mb-2 font-jako-regular">
                     Guests
                 </p>
@@ -170,15 +164,16 @@ export default function BookingBox() {
                             activeDropdown === "guests" ? null : "guests"
                         )
                     }
-                    className="w-full flex items-center justify-between"
+                    className="w-full flex items-center justify-between text-left font-jako-bold text-[14px] font-[400]"
                 >
                     <span className="text-[#BC2623] text-[13px] sm:text-[14px] uppercase">
                         {guests}
                     </span>
 
                     <svg
-                        className={`w-4 h-4 transition ${activeDropdown === "guests" ? "rotate-180" : ""
-                            }`}
+                        className={`w-4 h-4 transition-transform duration-200 ml-2 shrink-0 ${
+                            activeDropdown === "guests" ? "rotate-180" : ""
+                        }`}
                         fill="none"
                         stroke="currentColor"
                         strokeWidth="2"
@@ -198,7 +193,6 @@ export default function BookingBox() {
                             "1 Adult",
                             "2 Adults",
                             "3 Adults",
-                            
                         ].map((item) => (
                             <button
                                 key={item}

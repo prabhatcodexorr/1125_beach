@@ -63,7 +63,7 @@ export default function PaymentPage() {
 
           <Link
             href="/"
-            className="text-[16px] font-[500] tracking-wide text-gray-800 hover:text-[#b92d2b] transition-colors flex items-center gap-1 font-jako-bold"
+            className="text-[16px] font-[400] tracking-wide text-gray-800 hover:text-[#b92d2b] transition-colors flex items-center gap-1 font-jako-bold"
           >
             ‹ Go Back
           </Link>
@@ -72,7 +72,7 @@ export default function PaymentPage() {
 
         {/* Page Title */}
         <div className="text-center py-8 md:py-10">
-          <h1 className="font-ogg-regular text-[40px] sm:text-[48px] md:text-[48px] text-[#6082a4] font-light tracking-wide">
+          <h1 className="font-ogg-regular text-[40px] sm:text-[48px] md:text-[48px] text-[#6082a4] font-[500] tracking-wide">
             Complete Your Payment
           </h1>
           <p className="mt-3 text-[16px] sm:text-[16px] font-[400] text-gray-500 max-w-[600px] mx-auto tracking-wide font-jako-bold">
@@ -84,7 +84,7 @@ export default function PaymentPage() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-[1160px] mx-auto items-start pt-4">
 
           {/* LEFT SIDE: Order Summary Card */}
-          <div className="bg-white rounded-2xl border border-gray-200/80 p-6 lg:col-span-4 lg:sticky lg:top-6">
+          <div className="bg-[#FFFEF8] rounded-2xl border border-gray-200/80 p-6 lg:col-span-4 lg:sticky lg:top-6">
             <h3 className="text-[14px] tracking-[1.5px] uppercase font-[400] text-gray-700 mb-5 font-jako-bold">
               Order Summary
             </h3>
@@ -122,7 +122,7 @@ export default function PaymentPage() {
           </div>
 
           {/* RIGHT SIDE: Payment Form */}
-          <div className="bg-white rounded-2xl border border-gray-200/80 shadow-sm p-6 sm:p-10 lg:col-span-8">
+          <div className="bg-white rounded-2xl border border-gray-200/80 shadow-xl shadow-[#E5D7D7] p-6 sm:p-10 lg:col-span-8">
             <div className="flex items-center gap-2 text-[#AF2F2C] text-[10px] uppercase font-bold tracking-[2px] mb-6">
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25Z" />

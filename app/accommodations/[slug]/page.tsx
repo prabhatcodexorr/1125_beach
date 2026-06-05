@@ -238,7 +238,7 @@ export default async function AccommodationDetailPage({
                                 <BookingBox />
 
                                 <div className="mt-9 flex justify-center sm:block">
-                                    <button className="w-full max-w-[304px] h-[62px] rounded-full border border-[#BC2623] bg-[#BC2623] text-white uppercase text-[14px] font-[400] tracking-[1.5px] shadow-[0_10px_25px_rgba(0,0,0,0.18)] transition-all duration-300 hover:bg-[#A92320]">
+                                    <button className="w-full max-w-[304px] h-[62px] rounded-full border border-[#BC2623] bg-[#BC2623] text-white uppercase text-[14px] font-[400] font-jako-bold tracking-[1.5px] shadow-[0_10px_25px_rgba(0,0,0,0.18)] transition-all duration-300 hover:bg-[#A92320] **:">
                                         Complete Reservation
                                     </button>
                                 </div>
