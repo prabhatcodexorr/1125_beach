@@ -44,7 +44,7 @@ export default function AccommodationsPage() {
             </section>
 
             {/* FIGMA FILTER INTERFACE INTEGRATION */}
-            <section className="max-w-[1280px] mx-auto px-6 pt-10 pb-2">
+            <section className="max-w-[1280px] mx-auto px-8 pt-10 pb-2">
 
                 {/* Upper Layer: Dropdown Actions & Status Counter (image_fe7e0a.png) */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gray-200/60 pb-6">
@@ -198,7 +198,7 @@ export default function AccommodationsPage() {
                                     {item.subtitle || "Sanctuary Escape"}
                                 </p>
 
-                                <h2 className="mt-3 text-[32.13px] lg:text-[24px] font-[400] font-ogg-regular text-[#7CA5C8]">
+                                <h2 className="mt-3 text-[32.13px] font-[400] font-ogg-regular text-[#7CA5C8] ">
                                     {item.title}
                                 </h2>
 

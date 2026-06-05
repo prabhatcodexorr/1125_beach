@@ -64,7 +64,7 @@ export default function EventsPage() {
                 Celebrations
               </p>
 
-              <h3 className="mt-3 text-[20px] lg:text-[24px] font-[400] font-ogg-regular text-[#89a7cb]">
+              <h3 className="mt-3 text-[24px] lg:text-[24px] font-[400] font-ogg-regular text-[#89a7cb]">
                 Weddings & Ceremonies
               </h3>
 
@@ -92,7 +92,7 @@ export default function EventsPage() {
                 Corporate
               </p>
 
-             <h3 className="mt-3 text-[20px] lg:text-[24px]  font-[400] font-ogg-regular text-[#89a7cb]">
+             <h3 className="mt-3 text-[24px] lg:text-[24px]  font-[400] font-ogg-regular text-[#89a7cb]">
                 Executive Retreats
               </h3>
 

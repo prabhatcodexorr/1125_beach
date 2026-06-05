@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 
 const galleryImages = [
@@ -25,7 +27,7 @@ const categories = [
 export default function GalleryPage() {
     return (
         <main className="bg-[#FFFEF8] min-h-screen">
-            {/* Hero */}
+            {/* Hero Section - No changes needed here */}
             <section className="px-4 mt-4 overflow-hidden">
                 <div className="relative h-[350px] md:h-[420px] overflow-hidden rounded-2xl">
                     <Image
@@ -35,61 +37,72 @@ export default function GalleryPage() {
                         priority
                         className="object-cover"
                     />
-
                     <div className="absolute inset-0 bg-black/40" />
-
                     <div className="absolute inset-0 flex items-center justify-center">
-                        <h1 className="font-ogg-regular  text-white text-[50px] md:text-[65px] font-[400] text-center">
+                        <h1 className="font-ogg-regular text-white text-[50px] md:text-[65px] font-[400] text-center">
                             Gallery
                         </h1>
                     </div>
                 </div>
             </section>
 
-
-
-            <section className="bg-[#9BB9DA]">
-                <div className="max-w-[1400px] mx-auto px-6 mt-4">
-                    <div className="overflow-x-auto scrollbar-hide">
-                        <div className="flex w-max gap-3 px-4 py-4">
+            {/* Category Slider - FIXED ALIGNMENT */}
+            <section className="bg-[#9BB9DA] w-full mt-4">
+                <div className="max-w-[1400px] mx-auto">
+                    {/* 
+                        FIX: 
+                        1. Removed px-6 from the parent div.
+                        2. Added px-6 md:px-12 lg:px-[77px] to this scrollable div.
+                        3. Added scrollbar-hide logic.
+                    */}
+                    <div 
+                        className="overflow-x-auto px-6 md:px-12 lg:px-[77px]"
+                        style={{ 
+                            scrollbarWidth: 'none', 
+                            msOverflowStyle: 'none',
+                            WebkitOverflowScrolling: 'touch' 
+                        }}
+                    >
+                        <div className="flex w-max gap-3 py-5">
                             {categories.map((item, index) => (
                                 <button
                                     key={item}
                                     className={`
-    whitespace-nowrap 
-    px-5 
-    py-2.5 
-    rounded-full 
-    uppercase 
-    font-semibold 
-    font-sans                
-    text-[13px]  
-    font-[700]              
-    leading-[19.5px]           
-    tracking-[0.4px]          
-    transition-all 
-    duration-200
-    ${index === 0
+                                        whitespace-nowrap 
+                                        px-6 
+                                        py-2.5 
+                                        rounded-full 
+                                        uppercase 
+                                        font-sans                
+                                        text-[13px]  
+                                        font-[700]              
+                                        leading-[19.5px]           
+                                        tracking-[0.4px]          
+                                        transition-all 
+                                        duration-200
+                                        ${index === 0
                                             ? "bg-white text-[#66839C]"
-                                            : "text-[#FFFEF8B2] hover:bg-white/10"
+                                            : "text-[#FFFEF8B2] hover:bg-white/10 hover:text-white"
                                         }
-  `}
+                                    `}
                                 >
                                     {item}
                                 </button>
                             ))}
+                            {/* Extra spacer for end-padding consistency on mobile */}
+                            <div className="w-4 md:hidden" />
                         </div>
                     </div>
                 </div>
             </section>
 
-            {/* Gallery */}
+            {/* Gallery Grid - Stays the same for masonry effect */}
             <section className="max-w-[1400px] mx-auto px-6 py-8">
                 <div className="columns-1 md:columns-2 lg:columns-3 gap-5 space-y-5">
                     {galleryImages.map((image) => (
                         <div
                             key={image.id}
-                            className={`relative ${image.height} overflow-hidden rounded-lg break-inside-avoid`}
+                            className={`relative ${image.height} overflow-hidden rounded-lg break-inside-avoid shadow-sm`}
                         >
                             <Image
                                 src={image.src}

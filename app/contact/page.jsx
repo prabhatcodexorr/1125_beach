@@ -29,11 +29,11 @@ export default function ContactPage() {
                 <div className="grid lg:grid-cols-2 gap-20 items-start">
                     {/* Left */}
                     <div>
-                        <h2 className="font-ogg-regular text-[70px] lg:text-[96px] leading-none text-[#222]">
+                        <h2 className="font-ogg-regular text-[70px] lg:text-[96px] font-[400] leading-none text-[#222]">
                             Get in
                         </h2>
 
-                        <h2 className="font-ogg-regular text-[70px] lg:text-[96px] leading-none text-[#9BB9DA]">
+                        <h2 className="font-ogg-regular text-[70px] lg:text-[96px] font-[400] leading-none text-[#9BB9DA]">
                             Touch
                         </h2>
 
@@ -81,7 +81,7 @@ export default function ContactPage() {
 
                             <button
                                 type="submit"
-                                className="bg-[#AF2F2C] text-white font-manrope-regular font-[500] rounded-full px-8 py-4 uppercase tracking-[2px] text-[12px]"
+                                className="bg-[#AF2F2C] text-[#FFFEF8] font-manrope-regular font-[500] rounded-full px-8 py-4 uppercase tracking-[2px] text-[12px]"
                             >
                                 Send Message
                             </button>

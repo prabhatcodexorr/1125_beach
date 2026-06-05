@@ -49,7 +49,7 @@ export default function BookingBox() {
         // >
         <div
     ref={dropdownRef}
-    className="grid grid-cols-1 md:grid-cols-3 relative gap-4 md:gap-0"
+    className="grid grid-cols-1 md:grid-cols-3 relative gap-4 md:gap-0 "
 >
             {/* Check In */}
             {/* <div className="pr-2 sm:pr-6 border-r border-[#D8D0C8] relative"> */}
@@ -88,7 +88,7 @@ export default function BookingBox() {
 
                 {activeDropdown === "checkin" && (
                     // <div className="absolute top-full left-0 mt-2 z-50">
-                    <div className="absolute top-full left-0 mt-2 z-50 scale-[0.85] md:scale-100 origin-top-left">
+                    <div className="absolute top-full left-0 mt-2 z-[99999] scale-[0.85] md:scale-100 origin-top-left">
                         <DatePicker
                             selected={checkIn}
                             dateFormat="yyyy-MM-dd"
@@ -140,7 +140,7 @@ export default function BookingBox() {
                 </button>
 
                 {activeDropdown === "checkout" && (
-                    <div className="absolute top-full left-0 mt-2 z-50">
+                    <div className="absolute top-full left-0 mt-2 z-[99999]">
                         <DatePicker
                             selected={checkOut}
                             minDate={checkIn}
@@ -193,13 +193,12 @@ export default function BookingBox() {
                 </button>
 
                 {activeDropdown === "guests" && (
-                    <div className="absolute top-full left-0 mt-2 w-[180px] bg-white rounded-xl shadow-lg border text-[14px] font-[400] font-jako-regular border-[#D8D0C8] z-50">
+                    <div className="absolute top-full left-0 mt-2 w-[180px] bg-white rounded-xl shadow-lg border text-[14px] font-[400] font-jako-regular border-[#D8D0C8] z-[99999]">
                         {[
                             "1 Adult",
                             "2 Adults",
                             "3 Adults",
-                            "4 Adults",
-                            "5+ Adults",
+                            
                         ].map((item) => (
                             <button
                                 key={item}
