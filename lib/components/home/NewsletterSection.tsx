@@ -52,76 +52,32 @@ return (
             </p>
             {/* Email Subscription Bar Form */}
             <form
-               className="mt-8 flex justify-center"
-               onSubmit={(e) =>
-               e.preventDefault()}
-               >
-           <div
-  className="
-    w-full
-    max-w-[507px]
-    h-[62px]
-    md:h-[70px]
-    lg:h-[77px]
-    newsletter-glass
-    rounded-[45px]
-    flex
-    items-center
-    pl-6
-    pr-2
-  "
+  className="mt-8 flex justify-center"
+  onSubmit={(e) => e.preventDefault()}
 >
-                  <input
-  type="email"
-  placeholder="Email Address"
-  className="
-    font-jako-bold
-    flex-1
-    bg-transparent
-    outline-none
-    text-[14px]
-    md:text-[15px]
-    lg:text-[20px]
-
-    placeholder:text-[#A3B2C5]
-    text-[#66839C9C]
-
-    opacity-100
-  "
-/>
-                  <button
-                     type="submit"
-                     className="
-                     w-[48px]
-                     h-[48px]
-                     md:w-[58px]
-                     md:h-[58px]
-                     lg:w-[61px]
-                     lg:h-[61px]
-                     flex
-                     items-center
-                     justify-center
-                     transition-all
-                     shrink-0
-                     "
-                     >
-                     <svg
-                        width="57"
-                        height="57"
-                        viewBox="0 0 57 57"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="w-full h-full"
-                        >
-                        <rect width="57" height="57" rx="28.5" fill="#AE2020" />
-                        <path
-                           d="M42.0607 30.0607C42.6464 29.4749 42.6464 28.5251 42.0607 27.9393L32.5147 18.3934C31.9289 17.8076 30.9792 17.8076 30.3934 18.3934C29.8076 18.9792 29.8076 19.9289 30.3934 20.5147L38.8787 29L30.3934 37.4853C29.8076 38.0711 29.8076 39.0208 30.3934 39.6066C30.9792 40.1924 31.9289 40.1924 32.5147 39.6066L42.0607 30.0607ZM17 29V30.5L41 30.5V29V27.5L17 27.5V29Z"
-                           fill="#FFFEF8"
-                           />
-                     </svg>
-                  </button>
-               </div>
-            </form>
+  <div className="w-full max-w-[507px] h-[62px] md:h-[70px] lg:h-[77px] bg-[#FFFFFFDB] backdrop-blur-[12px] border border-white/40 rounded-[45px] flex items-center pl-6 pr-2 shadow-lg opacity-90">
+    <input
+      type="email"
+      placeholder="Email Address"
+      className="font-jako-bold flex-1 bg-transparent outline-none text-[20px] md:text-[15px] lg:text-[20px] placeholder:text-[#66839C]/70 text-[#425a70] font-medium opacity-100 font-jake-bold text-[400] opacity-100 "
+    />
+    <button
+      type="submit"
+      className="w-[48px] h-[48px] md:w-[54px] md:h-[54px] lg:w-[61px] lg:h-[61px] flex items-center justify-center transition-all duration-300 hover:scale-105 shrink-0"
+    >
+      <svg
+        viewBox="0 0 57 57"
+        className="w-full h-full"
+      >
+        <rect width="57" height="57" rx="28.5" fill="#BC2623" />
+        <path
+          d="M42.0607 30.0607C42.6464 29.4749 42.6464 28.5251 42.0607 27.9393L32.5147 18.3934C31.9289 17.8076 30.9792 17.8076 30.3934 18.3934C29.8076 18.9792 29.8076 19.9289 30.3934 20.5147L38.8787 29L30.3934 37.4853C29.8076 38.0711 29.8076 39.0208 30.3934 39.6066C30.9792 40.1924 31.9289 40.1924 32.5147 39.6066L42.0607 30.0607ZM17 29V30.5L41 30.5V29V27.5L17 27.5V29Z"
+          fill="#FFFEF8"
+        />
+      </svg>
+    </button>
+  </div>
+</form>
          </div>
       </div>
    </div>

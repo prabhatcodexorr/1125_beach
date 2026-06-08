@@ -203,7 +203,7 @@ export default function Header() {
                 Book A Stay
               </button> */}
               <Link
-                href="/accommodations/the-villa"
+                href="/accommodations/5-bedroom-beach-house"
                 className="bg-[#BC2623] hover:bg-[#a71f1d] z-[10000] font-manrope-regular active:scale-95 transition text-white rounded-full px-5 py-3 md:px-7 md:py-3.5 uppercase font-[700] tracking-[1.5px] text-[11px] md:text-[11px] whitespace-nowrap shadow-sm"
               >
                 Book A Stay

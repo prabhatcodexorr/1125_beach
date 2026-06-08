@@ -1,8 +1,8 @@
 import Image from "next/image";
+import Link from "next/link"; // <-- Link इम्पोर्ट किया
 import { notFound } from "next/navigation";
 import { accommodations } from "@/lib/data/accommodations";
 import BookingBox from "@/lib/components/accommodations/BookingBox";
-
 
 export default async function AccommodationDetailPage({
     params,
@@ -16,6 +16,14 @@ export default async function AccommodationDetailPage({
     );
 
     if (!room) notFound();
+
+    // सारे बटन्स को डायनामिक बनाने के लिए लिस्ट
+    const tabs = [
+        { slug: "5-bedroom-beach-house", label: "5-Bedroom Beach House" },
+        { slug: "deluxe-room", label: "Deluxe Room" },
+        { slug: "standard-room", label: "Standard Room" },
+        { slug: "chalets", label: "Chalets" },
+    ];
 
     return (
         <main className="bg-[#FFFEF8] min-h-screen">
@@ -40,22 +48,31 @@ export default async function AccommodationDetailPage({
                 </div>
             </section>
 
-
+            {/* Tabs Section */}
             <section className="max-w-[1140px] mx-auto relative z-30 px-6 mt-6 sm:-mt-[70px] md:-mt-[85px] mb-4 sm:mb-0 hidden lg:block">
-
                 <div className="grid grid-cols-2 gap-2.5 sm:flex sm:items-end sm:gap-2.5">
-                    <button className="bg-[#AF2F2C] text-[#FAF0E2] px-3 sm:px-7 py-4 sm:pt-5 sm:pb-4 lg:text-[16px] text-[12px] tracking-wider uppercase font-bold rounded-xl sm:rounded-b-none sm:rounded-t-xl shrink-0 h-[54px] sm:h-[58px] transition-all duration-150 font-jeko-black w-full sm:w-auto cursor-pointer">
-                        5-Bedroom Beach House
-                    </button>
-                    <button className="bg-[#E5D7D7] hover:bg-[#dbd2c8] text-[#8C7A7A] px-3 sm:px-6 py-4 sm:py-3.5 text-[12px] lg:text-[16px] tracking-wider uppercase font-bold rounded-xl sm:rounded-b-none sm:rounded-t-xl shrink-0 font-jeko-black h-[54px] sm:h-[48px] transition-all duration-150 w-full sm:w-auto cursor-pointer">
-                        Deluxe Room
-                    </button>
-                    <button className="bg-[#E5D7D7] hover:bg-[#dbd2c8] text-[#8C7A7A] px-3 sm:px-6 py-4 sm:py-3.5 text-[12px] lg:text-[16px] tracking-wider uppercase font-bold rounded-xl sm:rounded-b-none sm:rounded-t-xl shrink-0 font-jeko-black h-[54px] sm:h-[48px] transition-all duration-150 w-full sm:w-auto cursor-pointer">
-                        Standard Room
-                    </button>
-                    <button className="bg-[#E5D7D7] hover:bg-[#dbd2c8] text-[#8C7A7A] px-3 sm:px-6 py-4 sm:py-3.5 text-[12px] lg:text-[16px] tracking-wider uppercase  rounded-xl sm:rounded-b-none sm:rounded-t-xl shrink-0 font-jeko-black h-[54px] sm:h-[48px] transition-all duration-150 w-full sm:w-auto cursor-pointer">
-                        Chalets
-                    </button>
+                    {tabs.map((tab) => {
+                        // चेक कर रहा है कि क्या वर्तमान पेज का slug इस बटन के slug से मैच करता है
+                        const isActive = slug === tab.slug;
+
+                        return (
+                            <Link
+                                key={tab.slug}
+                                href={`/accommodations/${tab.slug}`} // <-- क्लिक करने पर उस रूम के पेज पर ले जाएगा
+                                className={`
+                                    px-3 sm:px-7 py-4 lg:text-[16px] text-[12px] tracking-wider uppercase font-[400] 
+                                    rounded-xl sm:rounded-b-none sm:rounded-t-xl shrink-0 transition-all duration-150 
+                                    font-jeko-black w-full sm:w-auto text-center flex items-center justify-center
+                                    ${isActive
+                                        ? "bg-[#AF2F2C] text-[#FAF0E2] h-[54px] sm:h-[58px] sm:pt-5 sm:pb-4 pointer-events-none" // ACTIVE STYLE
+                                        : "bg-[#E5D7D7] hover:bg-[#dbd2c8] text-[#8C7A7A] h-[54px] sm:h-[48px] sm:py-3.5" // INACTIVE STYLE
+                                    }
+                                `}
+                            >
+                                {tab.label}
+                            </Link>
+                        );
+                    })}
                 </div>
             </section>
 
@@ -189,58 +206,17 @@ export default async function AccommodationDetailPage({
 
                             {/* Booking Box */}
                             <div className="w-full max-w-[513px] min-h-[188px] bg-[#FFFEF8] border border-[#E7DDD4] rounded-[12px] p-[24px] mt-10">
-                                {/* <div className="grid grid-cols-3">
-                                   
-                                    <div className="pr-2 sm:pr-6 border-r border-[#D8D0C8]">
-                                        <p className="text-[10px] sm:text-[11px] lg:text-[12px] font-[400] uppercase tracking-[1px] sm:tracking-[2px] text-[#A69C94] mb-2 font-jako-regular">
-                                            Check In
-                                        </p>
-                                        <div className="flex items-center justify-between gap-1">
-                                            <span className="text-[#BC2623] text-[13px] sm:text-[14px] lg:text-[14px] font-medium tracking-[0.5px] sm:tracking-[1px]">
-                                                2026-05-28
-                                            </span>
-                                            <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="m6 9 6 6 6-6" />
-                                            </svg>
-                                        </div>
-                                    </div>
 
-                                   
-                                    <div className="px-2 sm:px-6 border-r border-[#D8D0C8]">
-                                        <p className="text-[10px] sm:text-[11px] lg:text-[12px] font-[400] uppercase tracking-[1px] sm:tracking-[2px] text-[#A69C94] mb-2 font-jako-regular">
-                                            Check Out
-                                        </p>
-                                        <div className="flex items-center justify-between gap-1">
-                                            <span className="text-[#BC2623] text-[13px] sm:text-[14px] lg:text-[14px] font-medium tracking-[0.5px] sm:tracking-[1px]">
-                                                2026-05-28
-                                            </span>
-                                            <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="m6 9 6 6 6-6" />
-                                            </svg>
-                                        </div>
-                                    </div>
-
-                                   
-                                    <div className="pl-2 sm:pl-6">
-                                       <p className="text-[10px] sm:text-[11px] lg:text-[12px] font-[400] uppercase tracking-[1px] sm:tracking-[2px] text-[#A69C94] mb-2 font-jako-regular">
-                                            Guests
-                                        </p>
-                                        <div className="flex items-center justify-between gap-1">
-                                            <span className="text-[#BC2623] text-[13px] sm:text-[14px] lg:text-[14px] font-medium tracking-[0.5px] sm:tracking-[1px] uppercase">
-                                                2 Adults
-                                            </span>
-                                            <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="m6 9 6 6 6-6" />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div> */}
                                 <BookingBox />
 
                                 <div className="mt-9 flex justify-center sm:block">
-                                    <button className="w-full max-w-[304px] h-[62px] rounded-full border border-[#BC2623] bg-[#BC2623] text-white uppercase text-[14px] font-[400] font-jako-bold tracking-[1.5px] shadow-[0_10px_25px_rgba(0,0,0,0.18)] transition-all duration-300 hover:bg-[#A92320] **:">
+
+                                    <Link
+                                        href="/payment"
+                                        className="w-full max-w-[304px] h-[62px] rounded-full border border-[#BC2623] bg-[#BC2623] text-white uppercase text-[14px] font-[400] font-jako-bold tracking-[1.5px] shadow-[0_10px_25px_rgba(0,0,0,0.18)] transition-all duration-300 hover:bg-[#A92320] flex items-center justify-center text-center cursor-pointer"
+                                    >
                                         Complete Reservation
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
 
@@ -254,7 +230,7 @@ export default async function AccommodationDetailPage({
             <section className="max-w-[1140px] mx-auto relative z-30 px-6 mt-6   sm:-mt-[70px] md:-mt-[85px] mb-4 sm:mb-0 lg:hidden">
 
                 <div className="grid grid-cols-2 gap-2.5 sm:flex sm:items-end sm:gap-2.5">
-                    <button className="bg-[#AF2F2C] text-[#FAF0E2] px-3 sm:px-7 py-4 sm:pt-5 sm:pb-4 lg:text-[16px] text-[12px] tracking-wider uppercase font-bold rounded-xl sm:rounded-b-none sm:rounded-t-xl shrink-0 h-[54px] sm:h-[58px] transition-all duration-150 font-jeko-black w-full sm:w-auto cursor-pointer">
+                    <button className="bg-[#AF2F2C] text-[#FAF0E2] px-3 sm:px-7 py-4 sm:pt-5 sm:pb-4 lg:text-[16px] text-[12px] tracking-wider uppercase font-[400] rounded-xl sm:rounded-b-none sm:rounded-t-xl shrink-0 h-[54px] sm:h-[58px] transition-all duration-150 font-jeko-black w-full sm:w-auto cursor-pointer">
                         5-Bedroom Beach House
                     </button>
 
@@ -391,58 +367,17 @@ export default async function AccommodationDetailPage({
 
                             {/* Booking Box */}
                             <div className="w-full max-w-[513px] min-h-[188px] bg-[#FFFEF8] border border-[#E7DDD4] rounded-[12px] p-[24px] mt-10">
-                                {/* <div className="grid grid-cols-3">
-                                   
-                                    <div className="pr-2 sm:pr-6 border-r border-[#D8D0C8]">
-                                        <p className="text-[10px] sm:text-[11px] lg:text-[12px] font-[400] uppercase tracking-[1px] sm:tracking-[2px] text-[#A69C94] mb-2 font-jako-regular">
-                                            Check In
-                                        </p>
-                                        <div className="flex items-center justify-between gap-1">
-                                            <span className="text-[#BC2623] text-[13px] sm:text-[14px] lg:text-[14px] font-medium tracking-[0.5px] sm:tracking-[1px]">
-                                                2026-05-28
-                                            </span>
-                                            <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="m6 9 6 6 6-6" />
-                                            </svg>
-                                        </div>
-                                    </div>
 
-                                   
-                                    <div className="px-2 sm:px-6 border-r border-[#D8D0C8]">
-                                        <p className="text-[10px] sm:text-[11px] lg:text-[12px] font-[400] uppercase tracking-[1px] sm:tracking-[2px] text-[#A69C94] mb-2 font-jako-regular">
-                                            Check Out
-                                        </p>
-                                        <div className="flex items-center justify-between gap-1">
-                                            <span className="text-[#BC2623] text-[13px] sm:text-[14px] lg:text-[14px] font-medium tracking-[0.5px] sm:tracking-[1px]">
-                                                2026-05-28
-                                            </span>
-                                            <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="m6 9 6 6 6-6" />
-                                            </svg>
-                                        </div>
-                                    </div>
-
-                                   
-                                    <div className="pl-2 sm:pl-6">
-                                       <p className="text-[10px] sm:text-[11px] lg:text-[12px] font-[400] uppercase tracking-[1px] sm:tracking-[2px] text-[#A69C94] mb-2 font-jako-regular">
-                                            Guests
-                                        </p>
-                                        <div className="flex items-center justify-between gap-1">
-                                            <span className="text-[#BC2623] text-[13px] sm:text-[14px] lg:text-[14px] font-medium tracking-[0.5px] sm:tracking-[1px] uppercase">
-                                                2 Adults
-                                            </span>
-                                            <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="m6 9 6 6 6-6" />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div> */}
                                 <BookingBox />
 
                                 <div className="mt-9 flex justify-center sm:block">
-                                    <button className="w-full max-w-[304px] h-[62px] rounded-full border border-[#BC2623] bg-[#BC2623] text-white uppercase text-[14px] font-[400] tracking-[1.5px] shadow-[0_10px_25px_rgba(0,0,0,0.18)] transition-all duration-300 hover:bg-[#A92320]">
+
+                                    <Link
+                                        href="/payment"
+                                        className="w-full max-w-[304px] h-[62px] rounded-full border border-[#BC2623] bg-[#BC2623] text-white uppercase text-[14px] font-[400] font-jako-bold tracking-[1.5px] shadow-[0_10px_25px_rgba(0,0,0,0.18)] transition-all duration-300 hover:bg-[#A92320] flex items-center justify-center text-center cursor-pointer"
+                                    >
                                         Complete Reservation
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
 
@@ -455,7 +390,7 @@ export default async function AccommodationDetailPage({
             <section className="max-w-[1140px] mx-auto relative z-30 px-6  sm:-mt-[70px] md:-mt-[85px] mb-4 sm:mb-0 lg:hidden">
 
                 <div className="grid grid-cols-2 gap-2.5 sm:flex sm:items-end sm:gap-2.5">
-                    <button className="bg-[#AF2F2C] text-[#FAF0E2] px-3 sm:px-7 py-4 sm:pt-5 sm:pb-4 lg:text-[16px] text-[12px] tracking-wider uppercase font-bold rounded-xl sm:rounded-b-none sm:rounded-t-xl shrink-0 h-[54px] sm:h-[58px] transition-all duration-150 font-jeko-black w-full sm:w-auto cursor-pointer">
+                    <button className="bg-[#AF2F2C] text-[#FAF0E2] px-3 sm:px-7 py-4 sm:pt-5 sm:pb-4 lg:text-[16px] text-[12px] tracking-wider uppercase font-[400] rounded-xl sm:rounded-b-none sm:rounded-t-xl shrink-0 h-[54px] sm:h-[58px] transition-all duration-150 font-jeko-black w-full sm:w-auto cursor-pointer">
                         Deluxe Room
                     </button>
 
@@ -590,14 +525,18 @@ export default async function AccommodationDetailPage({
                             </div>
 
                             {/* Booking Box */}
-                            <div className="w-full max-w-[513px] min-h-[188px] bg-[#FFFEF8] border border-[#E7DDD4] rounded-[12px] p-[24px] mt-10">
-                              
+                           <div className="w-full max-w-[513px] min-h-[188px] bg-[#FFFEF8] border border-[#E7DDD4] rounded-[12px] p-[24px] mt-10">
+
                                 <BookingBox />
 
                                 <div className="mt-9 flex justify-center sm:block">
-                                    <button className="w-full max-w-[304px] h-[62px] rounded-full border border-[#BC2623] bg-[#BC2623] text-white uppercase text-[14px] font-[400] tracking-[1.5px] shadow-[0_10px_25px_rgba(0,0,0,0.18)] transition-all duration-300 hover:bg-[#A92320]">
+                                  
+                                    <Link
+                                        href="/payment"
+                                        className="w-full max-w-[304px] h-[62px] rounded-full border border-[#BC2623] bg-[#BC2623] text-white uppercase text-[14px] font-[400] font-jako-bold tracking-[1.5px] shadow-[0_10px_25px_rgba(0,0,0,0.18)] transition-all duration-300 hover:bg-[#A92320] flex items-center justify-center text-center cursor-pointer"
+                                    >
                                         Complete Reservation
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
 
@@ -610,7 +549,7 @@ export default async function AccommodationDetailPage({
             <section className="max-w-[1140px] mx-auto relative z-30 px-6  sm:-mt-[70px] md:-mt-[85px] mb-4 sm:mb-0 lg:hidden">
 
                 <div className="grid grid-cols-2 gap-2.5 sm:flex sm:items-end sm:gap-2.5">
-                    <button className="bg-[#AF2F2C] text-[#FAF0E2] px-3 sm:px-7 py-4 sm:pt-5 sm:pb-4 lg:text-[16px] text-[12px] tracking-wider uppercase font-bold rounded-xl sm:rounded-b-none sm:rounded-t-xl shrink-0 h-[54px] sm:h-[58px] transition-all duration-150 font-jeko-black w-full sm:w-auto cursor-pointer">
+                    <button className="bg-[#AF2F2C] text-[#FAF0E2] px-3 sm:px-7 py-4 sm:pt-5 sm:pb-4 lg:text-[16px] text-[12px] tracking-wider uppercase font-[400] rounded-xl sm:rounded-b-none sm:rounded-t-xl shrink-0 h-[54px] sm:h-[58px] transition-all duration-150 font-jeko-black w-full sm:w-auto cursor-pointer">
                         Standard Room
                     </button>
 
@@ -745,58 +684,17 @@ export default async function AccommodationDetailPage({
 
                             {/* Booking Box */}
                             <div className="w-full max-w-[513px] min-h-[188px] bg-[#FFFEF8] border border-[#E7DDD4] rounded-[12px] p-[24px] mt-10">
-                                {/* <div className="grid grid-cols-3">
-                                   
-                                    <div className="pr-2 sm:pr-6 border-r border-[#D8D0C8]">
-                                        <p className="text-[10px] sm:text-[11px] lg:text-[12px] font-[400] uppercase tracking-[1px] sm:tracking-[2px] text-[#A69C94] mb-2 font-jako-regular">
-                                            Check In
-                                        </p>
-                                        <div className="flex items-center justify-between gap-1">
-                                            <span className="text-[#BC2623] text-[13px] sm:text-[14px] lg:text-[14px] font-medium tracking-[0.5px] sm:tracking-[1px]">
-                                                2026-05-28
-                                            </span>
-                                            <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="m6 9 6 6 6-6" />
-                                            </svg>
-                                        </div>
-                                    </div>
 
-                                   
-                                    <div className="px-2 sm:px-6 border-r border-[#D8D0C8]">
-                                        <p className="text-[10px] sm:text-[11px] lg:text-[12px] font-[400] uppercase tracking-[1px] sm:tracking-[2px] text-[#A69C94] mb-2 font-jako-regular">
-                                            Check Out
-                                        </p>
-                                        <div className="flex items-center justify-between gap-1">
-                                            <span className="text-[#BC2623] text-[13px] sm:text-[14px] lg:text-[14px] font-medium tracking-[0.5px] sm:tracking-[1px]">
-                                                2026-05-28
-                                            </span>
-                                            <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="m6 9 6 6 6-6" />
-                                            </svg>
-                                        </div>
-                                    </div>
-
-                                   
-                                    <div className="pl-2 sm:pl-6">
-                                       <p className="text-[10px] sm:text-[11px] lg:text-[12px] font-[400] uppercase tracking-[1px] sm:tracking-[2px] text-[#A69C94] mb-2 font-jako-regular">
-                                            Guests
-                                        </p>
-                                        <div className="flex items-center justify-between gap-1">
-                                            <span className="text-[#BC2623] text-[13px] sm:text-[14px] lg:text-[14px] font-medium tracking-[0.5px] sm:tracking-[1px] uppercase">
-                                                2 Adults
-                                            </span>
-                                            <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="m6 9 6 6 6-6" />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div> */}
                                 <BookingBox />
 
                                 <div className="mt-9 flex justify-center sm:block">
-                                    <button className="w-full max-w-[304px] h-[62px] rounded-full border border-[#BC2623] bg-[#BC2623] text-white uppercase text-[14px] font-[400] tracking-[1.5px] shadow-[0_10px_25px_rgba(0,0,0,0.18)] transition-all duration-300 hover:bg-[#A92320]">
+                                  
+                                    <Link
+                                        href="/payment"
+                                        className="w-full max-w-[304px] h-[62px] rounded-full border border-[#BC2623] bg-[#BC2623] text-white uppercase text-[14px] font-[400] font-jako-bold tracking-[1.5px] shadow-[0_10px_25px_rgba(0,0,0,0.18)] transition-all duration-300 hover:bg-[#A92320] flex items-center justify-center text-center cursor-pointer"
+                                    >
                                         Complete Reservation
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
 
@@ -810,7 +708,7 @@ export default async function AccommodationDetailPage({
             <section className="max-w-[1140px] mx-auto relative z-30 px-6  sm:-mt-[70px] md:-mt-[85px] mb-4 sm:mb-0 lg:hidden">
 
                 <div className="grid grid-cols-2 gap-2.5 sm:flex sm:items-end sm:gap-2.5">
-                    <button className="bg-[#AF2F2C] text-[#FAF0E2] px-3 sm:px-7 py-4 sm:pt-5 sm:pb-4 lg:text-[16px] text-[12px] tracking-wider uppercase font-bold rounded-xl sm:rounded-b-none sm:rounded-t-xl shrink-0 h-[54px] sm:h-[58px] transition-all duration-150 font-jeko-black w-full sm:w-auto cursor-pointer">
+                    <button className="bg-[#AF2F2C] text-[#FAF0E2] px-3 sm:px-7 py-4 sm:pt-5 sm:pb-4 lg:text-[16px] text-[12px] tracking-wider uppercase font-[400] rounded-xl sm:rounded-b-none sm:rounded-t-xl shrink-0 h-[54px] sm:h-[58px] transition-all duration-150 font-jeko-black w-full sm:w-auto cursor-pointer">
                         Chalets
                     </button>
 
@@ -946,59 +844,18 @@ export default async function AccommodationDetailPage({
                             </div>
 
                             {/* Booking Box */}
-                            <div className="w-full max-w-[513px] min-h-[188px] bg-[#FFFEF8] border border-[#E7DDD4] rounded-[12px] p-[24px] mt-10">
-                                {/* <div className="grid grid-cols-3">
-                                   
-                                    <div className="pr-2 sm:pr-6 border-r border-[#D8D0C8]">
-                                        <p className="text-[10px] sm:text-[11px] lg:text-[12px] font-[400] uppercase tracking-[1px] sm:tracking-[2px] text-[#A69C94] mb-2 font-jako-regular">
-                                            Check In
-                                        </p>
-                                        <div className="flex items-center justify-between gap-1">
-                                            <span className="text-[#BC2623] text-[13px] sm:text-[14px] lg:text-[14px] font-medium tracking-[0.5px] sm:tracking-[1px]">
-                                                2026-05-28
-                                            </span>
-                                            <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="m6 9 6 6 6-6" />
-                                            </svg>
-                                        </div>
-                                    </div>
+                           <div className="w-full max-w-[513px] min-h-[188px] bg-[#FFFEF8] border border-[#E7DDD4] rounded-[12px] p-[24px] mt-10">
 
-                                   
-                                    <div className="px-2 sm:px-6 border-r border-[#D8D0C8]">
-                                        <p className="text-[10px] sm:text-[11px] lg:text-[12px] font-[400] uppercase tracking-[1px] sm:tracking-[2px] text-[#A69C94] mb-2 font-jako-regular">
-                                            Check Out
-                                        </p>
-                                        <div className="flex items-center justify-between gap-1">
-                                            <span className="text-[#BC2623] text-[13px] sm:text-[14px] lg:text-[14px] font-medium tracking-[0.5px] sm:tracking-[1px]">
-                                                2026-05-28
-                                            </span>
-                                            <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="m6 9 6 6 6-6" />
-                                            </svg>
-                                        </div>
-                                    </div>
-
-                                   
-                                    <div className="pl-2 sm:pl-6">
-                                       <p className="text-[10px] sm:text-[11px] lg:text-[12px] font-[400] uppercase tracking-[1px] sm:tracking-[2px] text-[#A69C94] mb-2 font-jako-regular">
-                                            Guests
-                                        </p>
-                                        <div className="flex items-center justify-between gap-1">
-                                            <span className="text-[#BC2623] text-[13px] sm:text-[14px] lg:text-[14px] font-medium tracking-[0.5px] sm:tracking-[1px] uppercase">
-                                                2 Adults
-                                            </span>
-                                            <svg className="w-4 h-4 shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" d="m6 9 6 6 6-6" />
-                                            </svg>
-                                        </div>
-                                    </div>
-                                </div> */}
                                 <BookingBox />
 
                                 <div className="mt-9 flex justify-center sm:block">
-                                    <button className="w-full max-w-[304px] h-[62px] rounded-full border border-[#BC2623] bg-[#BC2623] text-white uppercase text-[14px] font-[400] tracking-[1.5px] shadow-[0_10px_25px_rgba(0,0,0,0.18)] transition-all duration-300 hover:bg-[#A92320]">
+                                  
+                                    <Link
+                                        href="/payment"
+                                        className="w-full max-w-[304px] h-[62px] rounded-full border border-[#BC2623] bg-[#BC2623] text-white uppercase text-[14px] font-[400] font-jako-bold tracking-[1.5px] shadow-[0_10px_25px_rgba(0,0,0,0.18)] transition-all duration-300 hover:bg-[#A92320] flex items-center justify-center text-center cursor-pointer"
+                                    >
                                         Complete Reservation
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
 

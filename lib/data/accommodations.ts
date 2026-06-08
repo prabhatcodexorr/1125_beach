@@ -1,7 +1,7 @@
 export const accommodations = [
   {
     id: 1,
-    slug: "the-villa",
+    slug: "5-bedroom-beach-house",
     category: "villa",
     subtitle: "5-BEDROOM BEACH RESIDENCE",
     title: "The Villa",
@@ -18,7 +18,6 @@ export const accommodations = [
       "Ocean View",
     ],
   },
-
   {
     id: 2,
     slug: "deluxe-room",
@@ -37,7 +36,6 @@ export const accommodations = [
       "Balcony",
     ],
   },
-
   {
     id: 3,
     slug: "standard-room",
@@ -58,16 +56,16 @@ export const accommodations = [
   },
   {
     id: 4,
-    slug: "standard-room",
+    slug: "chalets", // <-- यहाँ सही स्लग कर दिया
     category: "room",
-    subtitle: "COMFORTABLE COASTAL RETREAT",
-    title: "Standard Room",
+    subtitle: "EXCLUSIVE COASTAL CHALETS",
+    title: "Chalets", // <-- यहाँ सही नाम कर दिया
     price: 250,
     guests: 2,
     area: 45,
     image: "/images/accommodations/50deabec7df2ce9855d14e5125d8b2a525e84eb8 (1).jpg",
     description:
-      "Comfortable and thoughtfully designed.",
+      "Comfortable and thoughtfully designed chalets near the beach.",
     features: [
       "Queen Bed",
       "Air Conditioning",

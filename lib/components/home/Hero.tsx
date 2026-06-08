@@ -1,10 +1,21 @@
 "use client";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+
 export default function Hero() {
+
+   const router = useRouter();
+
+   const handleSubmit = (e: React.FormEvent) => {
+      e.preventDefault();
+      router.push("/accommodations/5-bedroom-beach-house");
+   };
+
    const [date, setDate] = useState<Date | null>(new Date());
+
 
    // अलग से हैंडलर फंक्शन बनाया
    const handleDateChange = (d: Date | null) => {
@@ -90,23 +101,31 @@ export default function Hero() {
                      Experience a sanctuary where the only schedule is the tide and
                      the only dress code is the sand.
                   </p>
-                  <form className="mt-6 w-[92%] max-w-[360px] rounded-full bg-white p-[4px] shadow-xl">
+                  {/* <form className="mt-6 w-[92%] max-w-[360px] rounded-full bg-white p-[4px] shadow-xl">
                      <div className="flex items-center">
 
                         <div className="flex-1 px-4">
+                           
                            <DatePicker
                               selected={date}
                               onChange={handleDateChange}
                               placeholderText="Select Date"
                               dateFormat="yyyy-MM-dd"
-                              className="
-          w-full
-          bg-transparent
-          outline-none
-          text-[#7F92AA]
-          text-[14px]
-          font-semibold
-        "
+                              filterDate={(d) => {
+
+                                 const today = new Date();
+                                 today.setHours(0, 0, 0, 0);
+                                 return d >= today;
+                              }}
+                              disabledKeyboardNavigation
+                              customInput={
+                                 <button
+                                    type="button"
+                                    className="w-full bg-transparent outline-none text-[#425a70] text-[14px] font-semibold text-left select-none"
+                                 >
+                                    {date ? date.toLocaleDateString('en-CA') : "Select Date"}
+                                 </button>
+                              }
                            />
                         </div>
 
@@ -129,6 +148,38 @@ export default function Hero() {
                            Book A Chalet
                         </button>
 
+                     </div>
+                  </form> */}
+                  <form onSubmit={handleSubmit} className="mt-6 w-[92%] max-w-[360px] rounded-full bg-white p-[4px] shadow-xl">
+                     <div className="flex items-center">
+                        <div className="flex-1 px-4">
+                           <DatePicker
+                              selected={date}
+                              onChange={handleDateChange}
+                              placeholderText="Select Date"
+                              dateFormat="yyyy-MM-dd"
+                              filterDate={(d) => {
+                                 const today = new Date();
+                                 today.setHours(0, 0, 0, 0);
+                                 return d >= today;
+                              }}
+                              disabledKeyboardNavigation
+                              customInput={
+                                 <button
+                                    type="button"
+                                    className="w-full bg-transparent outline-none text-[#425a70] text-[14px] font-semibold text-left select-none"
+                                 >
+                                    {date ? date.toLocaleDateString('en-CA') : "Select Date"}
+                                 </button>
+                              }
+                           />
+                        </div>
+                        <button
+                           type="submit"
+                           className="h-[48px] w-[155px] rounded-full bg-[#BC2623] hover:bg-[#a71f1d] text-white text-[12px] font-bold uppercase tracking-[1px] shrink-0 cursor-pointer"
+                        >
+                           Book A Chalet
+                        </button>
                      </div>
                   </form>
 
@@ -196,42 +247,31 @@ export default function Hero() {
                      Experience a sanctuary where the only schedule is the tide and
                      the only dress code is the sand.
                   </p>
-                  <form className="mt-12 w-[680px] h-[62px] rounded-[51px] bg-white p-[4px] shadow-xl">
+                  {/* <form className="mt-12 w-[680px] h-[62px] rounded-[51px] bg-white p-[4px] shadow-xl">
                      <div className="flex items-center justify-between h-full">
                         <div className="flex-1 pl-8">
-                           {/* <DatePicker
+                          
+                           <DatePicker
                               selected={date}
                               onChange={handleDateChange}
                               placeholderText="Select Date"
                               dateFormat="yyyy-MM-dd"
-                              className="
-                     w-full
-                     bg-transparent
-                     outline-none
-                     text-[#7F92AA]
-                     text-[14px]
-                     font-[700]
-                     cursor-pointer
-                     font-manrope-regular
-                     "
-                           /> */}
-                           <DatePicker
-  selected={date}
-  onChange={handleDateChange}
-  placeholderText="Select Date"
-  dateFormat="yyyy-MM-dd"
-  className="
-    w-full
-    h-[54px]
-    leading-[54px]
-    bg-transparent
-    outline-none
-    text-[#7F92AA]
-    text-[14px]
-    font-[700]
-    font-manrope-regular
-  "
-/>
+                              filterDate={(d) => {
+
+                                 const today = new Date();
+                                 today.setHours(0, 0, 0, 0);
+                                 return d >= today;
+                              }}
+                              disabledKeyboardNavigation
+                              customInput={
+                                 <button
+                                    type="button"
+                                    className="w-full h-[54px] bg-transparent outline-none text-[#425a70] text-[14px] font-[700] font-manrope-regular text-left select-none"
+                                 >
+                                    {date ? date.toLocaleDateString('en-CA') : "Select Date"}
+                                 </button>
+                              }
+                           />
                         </div>
                         <button
                            type="submit"
@@ -251,6 +291,38 @@ export default function Hero() {
                      transition-all
                      shrink-0
                      "
+                        >
+                           Book A Chalet
+                        </button>
+                     </div>
+                  </form> */}
+                  <form onSubmit={handleSubmit} className="mt-12 w-[680px] h-[62px] rounded-[51px] bg-white p-[4px] shadow-xl">
+                     <div className="flex items-center justify-between h-full">
+                        <div className="flex-1 pl-8">
+                           <DatePicker
+                              selected={date}
+                              onChange={handleDateChange}
+                              placeholderText="Select Date"
+                              dateFormat="yyyy-MM-dd"
+                              filterDate={(d) => {
+                                 const today = new Date();
+                                 today.setHours(0, 0, 0, 0);
+                                 return d >= today;
+                              }}
+                              disabledKeyboardNavigation
+                              customInput={
+                                 <button
+                                    type="button"
+                                    className="w-full h-[54px] bg-transparent outline-none text-[#425a70] text-[14px] font-[700] font-manrope-regular text-left select-none"
+                                 >
+                                    {date ? date.toLocaleDateString('en-CA') : "Select Date"}
+                                 </button>
+                              }
+                           />
+                        </div>
+                        <button
+                           type="submit"
+                           className="h-[54px] w-[190px] rounded-full bg-[#BC2623] hover:bg-[#a71f1d] text-white font-manrope-regular text-[14px] font-[700] uppercase tracking-[1.5px] transition-all shrink-0 cursor-pointer"
                         >
                            Book A Chalet
                         </button>

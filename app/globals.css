@@ -315,3 +315,14 @@ body {
   display: none; /* Chrome, Safari */
 }
 
+
+.react-datepicker-wrapper input {
+  color: #425a70 !important;
+}
+
+
+.react-datepicker__day--disabled {
+  color: #ccc !important;
+  cursor: not-allowed !important;
+  background-none: transparent !important;
+}
