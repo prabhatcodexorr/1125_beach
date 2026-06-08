@@ -205,7 +205,7 @@ export default async function AccommodationDetailPage({
                             </div>
 
                             {/* Booking Box */}
-                            <div className="w-full max-w-[513px] min-h-[188px] bg-[#FFFEF8] border border-[#E7DDD4] rounded-[12px] p-[24px] mt-10">
+                            <div className="w-full max-w-[600px] min-h-[188px] bg-[#FFFEF8] border border-[#E7DDD4] rounded-[12px] p-[24px] mt-10">
 
                                 <BookingBox />
 
@@ -366,7 +366,7 @@ export default async function AccommodationDetailPage({
                             </div>
 
                             {/* Booking Box */}
-                            <div className="w-full max-w-[513px] min-h-[188px] bg-[#FFFEF8] border border-[#E7DDD4] rounded-[12px] p-[24px] mt-10">
+                            <div className="w-full max-w-[600px] min-h-[188px] bg-[#FFFEF8] border border-[#E7DDD4] rounded-[12px] p-[24px] mt-10">
 
                                 <BookingBox />
 
@@ -525,7 +525,7 @@ export default async function AccommodationDetailPage({
                             </div>
 
                             {/* Booking Box */}
-                           <div className="w-full max-w-[513px] min-h-[188px] bg-[#FFFEF8] border border-[#E7DDD4] rounded-[12px] p-[24px] mt-10">
+                           <div className="w-full max-w-[600px] min-h-[188px] bg-[#FFFEF8] border border-[#E7DDD4] rounded-[12px] p-[24px] mt-10">
 
                                 <BookingBox />
 
@@ -683,7 +683,7 @@ export default async function AccommodationDetailPage({
                             </div>
 
                             {/* Booking Box */}
-                            <div className="w-full max-w-[513px] min-h-[188px] bg-[#FFFEF8] border border-[#E7DDD4] rounded-[12px] p-[24px] mt-10">
+                            <div className="w-full max-w-[600px] min-h-[188px] bg-[#FFFEF8] border border-[#E7DDD4] rounded-[12px] p-[24px] mt-10">
 
                                 <BookingBox />
 
