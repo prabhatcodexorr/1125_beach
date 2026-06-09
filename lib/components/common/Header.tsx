@@ -13,7 +13,7 @@ import LogoBlue from "@/public/images/logo-blue.svg";
 const menuItems = [
   { name: "Experience", link: "/experience" },
   { name: "Accommodations", link: "/accommodations" },
-  { name: "Our Story", link: "/" },
+  { name: "Our Story", link: "/our-story" },
   { name: "Gallery", link: "/gallery" },
   { name: "Contact", link: "/contact" },
 ];
@@ -22,8 +22,8 @@ export default function Header() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const transparentPages = ["/contact", "/experience", "/gallery"];
-  const extraTopPages = ["/contact", "/experience", "/gallery"];
+  const transparentPages = ["/contact", "/experience", "/gallery", "/our-story"];
+  const extraTopPages = ["/contact", "/experience", "/gallery", "/our-story"];
   const isAccommodationPage = pathname.startsWith("/accommodations");
 
   const isTransparent =

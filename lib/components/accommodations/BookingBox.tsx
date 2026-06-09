@@ -62,7 +62,7 @@ export default function BookingBox() {
 
                 {activeDropdown === "checkin" && (
                     <div className="absolute top-full left-0 mt-2 z-[99999] scale-[0.85] md:scale-100 origin-top-left">
-                        <DatePicker
+                        {/* <DatePicker
                             selected={checkIn}
                             onChange={(date: Date | null) => {
                                 if (date) {
@@ -72,6 +72,24 @@ export default function BookingBox() {
                                         nextDay.setDate(nextDay.getDate() + 1);
                                         setCheckOut(nextDay);
                                     }
+                                    setActiveDropdown(null);
+                                }
+                            }}
+                            inline
+                        /> */}
+                        <DatePicker
+                            selected={checkIn}
+                            minDate={new Date()}
+                            onChange={(date: Date | null) => {
+                                if (date) {
+                                    setCheckIn(date);
+
+                                    if (date >= checkOut) {
+                                        const nextDay = new Date(date);
+                                        nextDay.setDate(nextDay.getDate() + 1);
+                                        setCheckOut(nextDay);
+                                    }
+
                                     setActiveDropdown(null);
                                 }
                             }}
