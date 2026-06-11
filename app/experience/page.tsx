@@ -123,11 +123,11 @@ export default function EventsPage() {
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 mt-10">
-            <button className="bg-[#AE2020] text-white px-8 py-4 rounded-full uppercase text-[12px] font-[700] tracking-[2px] font-manrope-regular">
+            <button className="bg-[#AE2020] text-white cursor-pointer px-8 py-4 rounded-full uppercase text-[12px] font-[700] tracking-[2px] font-manrope-regular">
               Enquire Now
             </button>
 
-            <button className="border border-black px-8 py-4 text-[#242424]  rounded-full text-[12px] font-[700] font-manrope-regular">
+            <button className="border border-black cursor-pointer px-8 py-4 text-[#242424]  rounded-full text-[12px] font-[700] font-manrope-regular">
               +233 (0) 502 000 000
             </button>
           </div>

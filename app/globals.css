@@ -326,3 +326,15 @@ body {
   cursor: not-allowed !important;
   background-none: transparent !important;
 }
+
+.react-datepicker__day--disabled {
+  color: #ccc !important;
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+  background: transparent !important;
+}
+
+.react-datepicker__day--disabled:hover {
+  background: transparent !important;
+  color: #ccc !important;
+}

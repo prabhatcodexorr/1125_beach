@@ -1,4 +1,6 @@
 "use client";
+import Link from "next/link";
+
 
 export default function StorySection() {
   return (
@@ -49,7 +51,7 @@ export default function StorySection() {
         {/* Description */}
         <p
           className="
-            font-jako-regular
+            font-jako-medium
             
             text-[#2C2C2C]
 
@@ -59,8 +61,9 @@ export default function StorySection() {
 
             leading-[120%]
             tracking-[1px]
+            font-[400]
 
-            max-w-[620px]
+            max-w-[680px]
 
             mt-8
           "
@@ -72,7 +75,7 @@ export default function StorySection() {
         </p>
 
         {/* Button */}
-        <button
+        {/* <button
           className="
             mt-12
 
@@ -80,12 +83,12 @@ export default function StorySection() {
             px-[25px]
 
             border
-            border-[#BC2623]
+            border-[#AF2F2C]
 
             rounded-[50px]
 
-            bg-[#BC2623]
-            hover:bg-[#a61f1d]
+            bg-[#AE2020]
+            hover:bg-[#AE2020]
 
             text-white
 
@@ -100,10 +103,38 @@ export default function StorySection() {
 
             transition-all
             duration-300
+            cursor-pointer
           "
         >
           Discover Our Story
-        </button>
+        </button> */}
+        <Link
+  href="/our-story"
+  className="
+    mt-12
+    inline-flex
+    items-center
+    justify-center
+    h-[52px]
+    px-[25px]
+    border border-[#AF2F2C]
+    rounded-[50px]
+    bg-[#AE2020]
+    hover:bg-[#AE2020]
+    text-white
+    font-manrope-regular
+    font-[700]
+    text-[14px]
+    leading-[16px]
+    tracking-[1.2px]
+    uppercase
+    transition-all
+    duration-300
+    cursor-pointer
+  "
+>
+  Discover Our Story
+</Link>
 
       </div>
     </section>

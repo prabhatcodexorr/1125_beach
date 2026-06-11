@@ -203,7 +203,7 @@ export default function AccommodationsPage() {
                                 </h2>
 
                                 <p className="text-[#AE2020] text-[17.6px] mt-2 font-[400] font-jako-bold">
-                                    Starting from ${item.price} / night
+                                    Starting from GHS {item.price} / night
                                 </p>
 
                                 <p className="mt-6 text-[#6B6B6B] text-[15px] font-[400] leading-relaxed max-w-[520px] font-light font-manrope-regular">

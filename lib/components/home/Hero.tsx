@@ -158,6 +158,7 @@ export default function Hero() {
                               onChange={handleDateChange}
                               placeholderText="Select Date"
                               dateFormat="yyyy-MM-dd"
+                                
                               filterDate={(d) => {
                                  const today = new Date();
                                  today.setHours(0, 0, 0, 0);
@@ -304,6 +305,7 @@ export default function Hero() {
                               onChange={handleDateChange}
                               placeholderText="Select Date"
                               dateFormat="yyyy-MM-dd"
+                              
                               filterDate={(d) => {
                                  const today = new Date();
                                  today.setHours(0, 0, 0, 0);

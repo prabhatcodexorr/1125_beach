@@ -11,7 +11,7 @@ export default function PaymentPage() {
         {/* Header */}
         <div className="flex items-center justify-between pb-6">
           <Link href="/" className="flex flex-col shrink-0">
-            <div className="relative w-[100px] md:w-[120px] h-[50px] md:h-[60px]">
+            <div className="w-[120px] sm:w-[120px] md:w-[140px] h-[50px] md:h-[60px] relative">
               <svg width="50" height="52" className="w-full h-full max-w-[145px] max-h-[68px]" viewBox="0 0 56 52" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_1_2297)">
                       <path d="M1.78624 47.894C1.58075 47.8887 1.42531 47.8861 1.31992 47.8861C1.21981 47.8807 1.12496 47.8781 1.03539 47.8781C0.951083 47.8781 0.866778 47.8807 0.782469 47.8861C0.698165 47.8861 0.582242 47.8887 0.434706 47.894C0.313515 47.8994 0.223939 47.902 0.165979 47.902C0.108018 47.902 0.0526915 47.902 0 47.902V47.6223C0.353034 47.6223 0.566436 47.5823 0.640201 47.5024C0.713971 47.4225 0.756123 47.1828 0.766663 46.7832C0.782469 46.1758 0.790372 45.6989 0.790372 45.3526C0.795644 45.0063 0.798275 44.3084 0.798275 43.2588C0.798275 43.051 0.785105 42.9151 0.758759 42.8512C0.732414 42.7819 0.687625 42.7313 0.624395 42.6993C0.571703 42.678 0.50057 42.6647 0.410995 42.6594C0.321419 42.6487 0.184421 42.6434 0 42.6434V42.3637C0.0421533 42.3637 0.113287 42.3664 0.213401 42.3717C0.313515 42.3717 0.479493 42.3744 0.711335 42.3797C0.869409 42.385 0.974792 42.3877 1.02748 42.3877C1.08018 42.3877 1.11443 42.3877 1.13024 42.3877C1.14604 42.3877 1.1961 42.3877 1.28041 42.3877C1.36471 42.3823 1.53069 42.3797 1.77834 42.3797C2.07342 42.3744 2.27364 42.3717 2.37902 42.3717C2.48441 42.3664 2.55027 42.3637 2.57662 42.3637C3.21419 42.3637 3.68051 42.4622 3.97558 42.6594C4.27066 42.8512 4.41819 43.1575 4.41819 43.5785C4.41819 43.8768 4.29963 44.1432 4.06252 44.3776C3.83068 44.6067 3.51453 44.7719 3.11407 44.8731C3.61464 44.9051 3.99929 45.0436 4.26802 45.2887C4.54202 45.5338 4.67901 45.8641 4.67901 46.2797C4.67901 46.7592 4.47088 47.1508 4.05462 47.4545C3.63835 47.7528 3.07455 47.902 2.36322 47.902C2.30526 47.902 2.23676 47.902 2.15772 47.902C2.07868 47.8967 1.95486 47.894 1.78624 47.894ZM2.34741 42.6754H1.67559C1.5544 42.6754 1.48063 42.71 1.45429 42.7793C1.42794 42.8432 1.41477 43.067 1.41477 43.4506V44.8411H2.33161C2.79002 44.8411 3.13778 44.7479 3.3749 44.5615C3.61201 44.3696 3.73057 44.0899 3.73057 43.7223C3.73057 43.376 3.61464 43.1149 3.3828 42.9391C3.15096 42.7633 2.80583 42.6754 2.34741 42.6754ZM1.35154 47.4705C1.50434 47.4971 1.6914 47.5184 1.9127 47.5344C2.13401 47.5504 2.37112 47.5584 2.62404 47.5584C3.1088 47.5584 3.45657 47.4705 3.66734 47.2946C3.88337 47.1135 3.99139 46.8258 3.99139 46.4315C3.99139 46.0053 3.84122 45.683 3.54087 45.4645C3.24053 45.2461 2.79793 45.1368 2.21305 45.1368H1.41477V46.3596C1.41477 46.626 1.4095 46.8577 1.39896 47.0549C1.38843 47.2467 1.37261 47.3852 1.35154 47.4705Z" fill="#66839C" />
@@ -81,7 +81,7 @@ export default function PaymentPage() {
         </div>
 
         {/* Content Layout Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-[1160px] mx-auto items-start pt-4">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 max-w-[1440px] mx-auto items-start pt-4 py-6 md:py-8">
 
           {/* LEFT SIDE: Order Summary Card */}
           <div className="bg-[#FFFEF8] rounded-2xl border border-gray-200/80 p-6 lg:col-span-4 lg:sticky lg:top-6">
@@ -107,17 +107,17 @@ export default function PaymentPage() {
             {/* ... pricing rows */}
              <div className="border-t border-[#D5C2C2] pt-5 space-y-3.5 text-xs ">
               <div className="flex justify-between">
-                <span className="font-jako-regular font-[400] text-[14px] text-[#2C2422]">$650 x 2 nights</span>
-                <span className="font-[400] text-[14px] text-[#2C2422] font-jako-regular" >$1,300.00</span>
+                <span className="font-jako-regular font-[400] text-[14px] text-[#2C2422]">GSH 650 x 2 nights</span>
+                <span className="font-[400] text-[14px] text-[#2C2422] font-jako-regular" >GSH 1,300.00</span>
               </div>
               <div className="flex justify-between">
                 <span className="font-jako-regular font-[400] text-[14px] text-[#2C2422]">Taxes & Fees</span>
-                <span className="font-[400] text-[14px] text-[#2C2422] font-jako-regular">$195.00</span>
+                <span className="font-[400] text-[14px] text-[#2C2422] font-jako-regular">GSH 195.00</span>
               </div>
             </div>
             <div className="border-t border-[#D5C2C2] mt-5 pt-5 flex justify-between items-center text-sm font-bold text-[#2C2422]">
               <span className="text-[18px] font-[400] text-[#2C2422] font-jako-bold">Total</span>
-              <span className="text-[18px] font-[400] text-[#2C2422] font-jako-bold">$1,495.00</span>
+              <span className="text-[18px] font-[400] text-[#2C2422] font-jako-bold">GSH 1,495.00</span>
             </div>
           </div>
 
@@ -186,11 +186,11 @@ export default function PaymentPage() {
               </div>
             </div>
 
-            <button className="w-full mt-8 bg-[#AF2F2C] hover:bg-[#8e2523] text-white  py-4 rounded-full text-[20px] font-[400] tracking-wider uppercase transition-all duration-200 shadow-sm font-jako-bold">
-              Pay $1,495.00
+            <button className="w-full mt-8 bg-[#AF2F2C] cursor-pointer hover:bg-[#8e2523] text-white  py-4 rounded-full text-[20px] font-[400] tracking-wider uppercase transition-all duration-200 shadow-sm font-jako-bold">
+              Pay GSH 1,495.00
             </button>
 
-            <p className="text-center text-[12px] text-gray-400 mt-5 tracking-wide font-jako-bold flex items-center justify-center gap-1 font-[400]">
+            <p className="text-center text-[12px]  text-gray-400 mt-5 tracking-wide font-jako-bold flex items-center justify-center gap-1 font-[400]">
               <span>
                 {/* FIXED SVG ATTRIBUTES */}
                 <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">

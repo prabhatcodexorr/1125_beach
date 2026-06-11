@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import Image from "next/image";
 
 export default function GalleryPage() {
@@ -9,16 +10,16 @@ export default function GalleryPage() {
             <section className="px-4 pt-4">
                 <div className="relative h-[350px] md:h-[420px] overflow-hidden rounded-2xl">
                     <Image
-                        src="/images/our-story.jpg"
+                        src="/images/our-story2.jpg"
                         alt="Our Story"
                         fill
                         priority
-                        className="object-cover"
+                        className="object-cover object-top"
                     />
                     <div className="absolute inset-0 bg-black/40" />
                     <div className="absolute inset-0 flex items-center justify-center">
                         <h1 className="font-ogg-regular text-white text-[50px] md:text-[65px] font-[400] text-center">
-                            Our Story
+                            Who we are
                         </h1>
                     </div>
                 </div>
@@ -96,9 +97,33 @@ export default function GalleryPage() {
                         Where The Ocean Is Your Only Neighbour.
                     </h3>
 
-                    <button className="bg-[#AE2020] hover:bg-[#AE2020] text-[#FFFEF8] px-10 py-4 rounded-full text-[14px] font-[700] font-manrope-regular tracking-widest transition-colors uppercase">
-                        Discover Our Story
-                    </button>
+                    <Link
+  href="/our-story"
+  className="
+    mt-12
+    inline-flex
+    items-center
+    justify-center
+    h-[52px]
+    px-[25px]
+    border border-[#AF2F2C]
+    rounded-[50px]
+    bg-[#AE2020]
+    hover:bg-[#AE2020]
+    text-white
+    font-manrope-regular
+    font-[700]
+    text-[14px]
+    leading-[16px]
+    tracking-[1.2px]
+    uppercase
+    transition-all
+    duration-300
+    cursor-pointer
+  "
+>
+  Discover Our Story
+</Link>
                 </div>
 
     

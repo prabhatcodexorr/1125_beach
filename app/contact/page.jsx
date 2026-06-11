@@ -51,7 +51,7 @@ export default function ContactPage() {
                                 <input
                                     type="text"
                                     placeholder="John Doe"
-                                    className="w-full bg-transparent border-b border-gray-300 text-[20px] font-[400] text-[#D5C2C2] font-jako-medium pb-3 outline-none"
+                                    className="w-full bg-transparent border-b border-gray-300 text-[20px] font-[400] placeholder:text-[#D5C2C2]  text-[#5A4F4D]  font-jako-medium pb-3 outline-none"
                                 />
                             </div>
 
@@ -63,7 +63,7 @@ export default function ContactPage() {
                                 <input
                                     type="email"
                                     placeholder="john@example.com"
-                                    className="w-full bg-transparent font-jako-medium border-b text-[20px] font-[400] border-gray-300 text-[#D5C2C2] pb-3 outline-none"
+                                    className="w-full bg-transparent font-jako-medium border-b text-[20px] font-[400] border-gray-300 placeholder:text-[#D5C2C2]  text-[#5A4F4D]  pb-3 outline-none"
                                 />
                             </div>
 
@@ -75,13 +75,13 @@ export default function ContactPage() {
                                 <textarea
                                     rows={4}
                                     placeholder="How may we assist you?"
-                                    className="w-full bg-transparent font-jako-medium border-b text-[20px] font-[400] border-gray-300 text-[#D5C2C2] pb-3 resize-none outline-none"
+                                    className="w-full bg-transparent font-jako-medium border-b text-[20px] font-[400] border-gray-300 placeholder:text-[#D5C2C2]  text-[#5A4F4D]  pb-3 resize-none outline-none"
                                 />
                             </div>
 
                             <button
                                 type="submit"
-                                className="bg-[#AF2F2C] text-[#FFFEF8] font-manrope-regular font-[500] rounded-full px-8 py-4 uppercase tracking-[2px] text-[12px]"
+                                className="bg-[#AF2F2C] text-[#FFFEF8] font-manrope-regular font-[500] rounded-full px-8 py-4 uppercase tracking-[2px] text-[12px] cursor-pointer "
                             >
                                 Send Message
                             </button>

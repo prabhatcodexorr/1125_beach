@@ -2,17 +2,19 @@
 
 import Image from "next/image";
 
-const galleryImages = [
-    { id: 1, src: "/images/gallery/1.jpg", height: "h-[220px]" },
-    { id: 2, src: "/images/gallery/2.jpg", height: "h-[160px]" },
-    { id: 3, src: "/images/gallery/3.jpg", height: "h-[320px]" },
-    { id: 4, src: "/images/gallery/4.jpg", height: "h-[220px]" },
-    { id: 5, src: "/images/gallery/5.jpg", height: "h-[180px]" },
-    { id: 6, src: "/images/gallery/6.jpg", height: "h-[260px]" },
-    { id: 7, src: "/images/gallery/7.jpg", height: "h-[180px]" },
-    { id: 8, src: "/images/gallery/8.jpg", height: "h-[320px]" },
-    { id: 9, src: "/images/gallery/9.jpg", height: "h-[260px]" },
-    { id: 10, src: "/images/gallery/10.jpg", height: "h-[260px]" },
+
+
+const galleryImages = [   
+    { id: 1, src: "/images/gallery/1.jpg", height: "h-[282px]" },
+    { id: 2, src: "/images/gallery/2.jpg", height: "h-[318px]" },
+    { id: 3, src: "/images/gallery/6.jpg", height: "h-[212px]" },
+    { id: 4, src: "/images/gallery/4.jpg", height: "h-[477px]" },
+    { id: 5, src: "/images/gallery/5.jpg", height: "h-[212px]" },
+    { id: 6, src: "/images/gallery/6.jpg", height: "h-[239px]" },
+    { id: 7, src: "/images/gallery/7.jpg", height: "h-[477px]" },
+    { id: 8, src: "/images/gallery/8.jpg", height: "h-[477px]" },
+    { id: 9, src: "/images/gallery/9.jpg", height: "h-[212px]" },
+    { id: 10, src: "/images/gallery/10.jpg", height: "h-[477px]" },
 ];
 
 const categories = [
@@ -31,13 +33,13 @@ export default function GalleryPage() {
             <section className="px-4 mt-4 overflow-hidden">
                 <div className="relative h-[350px] md:h-[420px] overflow-hidden rounded-2xl">
                     <Image
-                        src="/images/gallery-banner.jpg"
+                        src="/images/b0a224ce805c59442793004b3d39bd16a7496666 (1).jpg"
                         alt="Gallery"
                         fill
                         priority
-                        className="object-cover"
+                        className="object-cover object-bottom"
                     />
-                    <div className="absolute inset-0 bg-black/40" />
+                    <div className="absolute inset-0 bg-[#00000033]" />
                     <div className="absolute inset-0 flex items-center justify-center">
                         <h1 className="font-ogg-regular text-white text-[50px] md:text-[65px] font-[400] text-center">
                             Gallery
@@ -47,16 +49,11 @@ export default function GalleryPage() {
             </section>
 
             {/* Category Slider - FIXED ALIGNMENT */}
-            <section className="bg-[#9BB9DA] w-full mt-4">
+            <section className="bg-[#9BB9DA] w-full mt-4 ">
                 <div className="max-w-[1400px] mx-auto">
-                    {/* 
-                        FIX: 
-                        1. Removed px-6 from the parent div.
-                        2. Added px-6 md:px-12 lg:px-[77px] to this scrollable div.
-                        3. Added scrollbar-hide logic.
-                    */}
+                    
                     <div 
-                        className="overflow-x-auto px-6 md:px-12 lg:px-[77px]"
+                        className="overflow-x-auto px-4 md:px-10 lg:px-[20px]"
                         style={{ 
                             scrollbarWidth: 'none', 
                             msOverflowStyle: 'none',
@@ -70,6 +67,7 @@ export default function GalleryPage() {
                                     className={`
                                         whitespace-nowrap 
                                         px-6 
+                                        cursor-pointer
                                         py-2.5 
                                         rounded-full 
                                         uppercase 
