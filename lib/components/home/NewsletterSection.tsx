@@ -1,8 +1,29 @@
 "use client";
-import { ArrowRight } from "lucide-react";
+import { motion, Variants } from "framer-motion"; // Animation imports
+
+// Animation Variants
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.8, ease: "easeOut" } 
+  }
+};
+
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2, // Gap between elements
+    }
+  }
+};
+
 export default function NewsletterSection() {
   return (
-    <section className="relative">
+    <section className="relative overflow-hidden">
       <div
         className="relative min-h-[280px] sm:h-[340px] md:h-[380px] flex items-center justify-center bg-cover bg-left py-12 sm:py-0"
         style={{
@@ -11,10 +32,18 @@ export default function NewsletterSection() {
       >
         {/* Premium Dark Soft Overlay */}
         <div className="absolute inset-0 bg-black/25" />
-        <div className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 flex justify-center">
+        
+        <motion.div 
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          className="relative z-10 w-full max-w-[1440px] mx-auto px-4 sm:px-8 lg:px-12 flex justify-center"
+        >
           <div className="text-center w-full max-w-[640px]">
-            {/* Heading - Scaled properly for touch devices */}
-            <h2
+            {/* Heading Animation */}
+            <motion.h2
+              variants={fadeInUp}
               className="
                font-ogg-regular
                text-white
@@ -28,9 +57,11 @@ export default function NewsletterSection() {
                "
             >
               Join Our Mailing List
-            </h2>
-            {/* Description Subtitle */}
-            <p
+            </motion.h2>
+
+            {/* Description Animation */}
+            <motion.p
+              variants={fadeInUp}
               className="
                font-jako-trial
                text-white
@@ -38,7 +69,6 @@ export default function NewsletterSection() {
                text-[14px]
                md:text-[15px]
                lg:text-[16px]
-               
                text-center
                max-w-[650px]
                mx-auto
@@ -48,21 +78,23 @@ export default function NewsletterSection() {
             >
               Sign Up For Our Newsletter To Be The First To Hear About Our
               News And Happenings Around The World.
-            </p>
-            {/* Email Subscription Bar Form */}
-            <form
+            </motion.p>
+
+            {/* Form Animation */}
+            <motion.form
+              variants={fadeInUp}
               className="mt-2 flex justify-center"
               onSubmit={(e) => e.preventDefault()}
             >
-              <div className="w-full max-w-[507px] h-[62px] md:h-[70px] lg:h-[77px]  rounded-[45px] flex items-center pl-6 pr-2 shadow-lg bg-[rgba(255,255,255,0.78)] ">
+              <div className="w-full max-w-[507px] h-[62px] md:h-[70px] lg:h-[77px] rounded-[45px] flex items-center pl-6 pr-2 shadow-lg bg-[rgba(255,255,255,0.78)] ">
                 <input
                   type="email"
                   placeholder="Email Address"
-                  className="font-jako-bold flex-1 bg-transparent outline-none text-[20px] md:text-[15px] lg:text-[20px] placeholder:text-[#66839C]/70 text-[#425a70] font-medium opacity-100 font-jake-bold text-[400] opacity-100 "
+                  className="font-jako-bold flex-1 bg-transparent outline-none text-[20px] md:text-[15px] lg:text-[20px] placeholder:text-[#66839C]/70 text-[#425a70] font-medium font-jake-bold text-[400] opacity-100"
                 />
                 <button
                   type="submit"
-                  className="w-[48px] h-[48px] md:w-[54px] md:h-[54px] lg:w-[61px] lg:h-[61px] flex items-center justify-center transition-all duration-300 hover:scale-105 shrink-0"
+                  className="w-[48px] h-[48px] md:w-[54px] md:h-[54px] lg:w-[61px] lg:h-[61px] flex items-center justify-center transition-all duration-300 hover:scale-105 shrink-0 cursor-pointer"
                 >
                   <svg
                     viewBox="0 0 57 57"
@@ -76,9 +108,9 @@ export default function NewsletterSection() {
                   </svg>
                 </button>
               </div>
-            </form>
+            </motion.form>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

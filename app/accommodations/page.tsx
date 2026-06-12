@@ -1,14 +1,22 @@
 "use client";
 
 import { useState } from "react";
-
 import Image from "next/image";
 import { accommodations } from "@/lib/data/accommodations";
 import Link from "next/link";
+import { motion, Variants } from "framer-motion"; // Animation imports
+
+// Animation Variants (TypeScript safe)
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.8, ease: "easeOut" } 
+  }
+};
 
 export default function AccommodationsPage() {
-
-
     const [filter, setFilter] = useState("all");
     const [priceOpen, setPriceOpen] = useState(false);
     const [occupancyOpen, setOccupancyOpen] = useState(false);
@@ -21,10 +29,16 @@ export default function AccommodationsPage() {
             );
 
     return (
-        <main className="bg-[#FFFEF8] min-h-screen font-sans antialiased text-[#444444]">
+        <main className="bg-[#FFFEF8] min-h-screen font-sans antialiased text-[#444444] overflow-x-hidden">
 
-            <section className="px-4 mt-4">
-                <div className="relative h-[350px] md:h-[420px]  overflow-hidden rounded-2xl">
+            {/* Hero Section - Page Load Animation */}
+            <section className="px-4 mt-4 overflow-hidden">
+                <motion.div 
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1.2, ease: "easeOut" }}
+                    className="relative h-[350px] md:h-[420px] overflow-hidden rounded-2xl"
+                >
                     <Image
                         src="/images/accommodation-banner.jpg"
                         alt="Experience"
@@ -36,15 +50,25 @@ export default function AccommodationsPage() {
                     <div className="absolute inset-0 bg-[#000]/40" />
 
                     <div className="absolute inset-0 flex items-center justify-center">
-                        <h1 className="font-serif text-white text-[45px] md:text-[65px] font-[400] font-ogg-regular text-center tracking-wide leading-none">
+                        <motion.h1 
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.5, duration: 0.8 }}
+                            className="font-serif text-white text-[45px] md:text-[65px] font-[400] font-ogg-regular text-center tracking-wide leading-none"
+                        >
                             Host your most unforgettable <br />event
-                        </h1>
+                        </motion.h1>
                     </div>
-                </div>
+                </motion.div>
             </section>
 
-            {/* FIGMA FILTER INTERFACE INTEGRATION */}
-            <section className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-12 pt-10 pb-2">
+            {/* FIGMA FILTER INTERFACE - Subtle Fade-in */}
+            <motion.section 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.8, duration: 0.6 }}
+                className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-12 pt-10 pb-2"
+            >
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gray-200/60 pb-6">
                     <div className="flex flex-wrap items-center gap-3 text-[11px] font-semibold tracking-widest text-[#7c828c]">
 
@@ -57,19 +81,10 @@ export default function AccommodationsPage() {
                         </div>
 
                         {/* Any Price Dynamic Action */}
-                        {/* <button className="flex items-center justify-between gap-6 px-5 py-2.5 bg-white border border-gray-200 rounded-full hover:border-gray-400 transition-colors uppercase">
-                            <span className="font-manrope-regular font-[700] text-[11px]">Any Price</span>
-                            <span className="text-[9px] text-gray-400">
-                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M3.5 5.25L7 8.75L10.5 5.25" stroke="#242424" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-
-                            </span>
-                        </button> */}
                         <div className="relative">
                             <button
                                 onClick={() => setPriceOpen(!priceOpen)}
-                                className="flex items-center justify-between gap-6 px-5 py-2.5 bg-white border border-gray-200 rounded-full hover:border-gray-400 transition-colors uppercase"
+                                className="flex items-center justify-between gap-6 px-5 py-2.5 bg-white border border-gray-200 rounded-full hover:border-gray-400 transition-colors uppercase cursor-pointer"
                             >
                                 <span className="font-manrope-regular font-[700] text-[11px]">
                                     Any Price
@@ -80,8 +95,7 @@ export default function AccommodationsPage() {
                                     height="14"
                                     viewBox="0 0 14 14"
                                     fill="none"
-                                    className={`transition-transform ${priceOpen ? "rotate-180" : ""
-                                        }`}
+                                    className={`transition-transform ${priceOpen ? "rotate-180" : ""}`}
                                 >
                                     <path
                                         d="M3.5 5.25L7 8.75L10.5 5.25"
@@ -94,34 +108,23 @@ export default function AccommodationsPage() {
                             </button>
 
                             {priceOpen && (
-                                <div className="absolute top-full mt-2 left-0 w-48 bg-white border border-gray-200 rounded-xl shadow-lg z-50">
-                                    <button className="w-full text-left px-4 py-3 hover:bg-gray-50">
-                                        ₹5,000+
-                                    </button>
-                                    <button className="w-full text-left px-4 py-3 hover:bg-gray-50">
-                                        ₹10,000+
-                                    </button>
-                                    <button className="w-full text-left px-4 py-3 hover:bg-gray-50">
-                                        ₹20,000+
-                                    </button>
-                                </div>
+                                <motion.div 
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    className="absolute top-full mt-2 left-0 w-48 bg-white border border-gray-200 rounded-xl shadow-lg z-50"
+                                >
+                                    <button className="w-full text-left px-4 py-3 hover:bg-gray-50">₹5,000+</button>
+                                    <button className="w-full text-left px-4 py-3 hover:bg-gray-50">₹10,000+</button>
+                                    <button className="w-full text-left px-4 py-3 hover:bg-gray-50">₹20,000+</button>
+                                </motion.div>
                             )}
                         </div>
 
                         {/* Occupancy Action Dropdown */}
-                        {/* <button className="flex items-center justify-between gap-6 px-5 py-2.5 bg-white border border-gray-200 rounded-full hover:border-gray-400 transition-colors uppercase">
-                            <span className="font-manrope-regular font-[700] text-[11px]">Occupancy</span>
-                            <span className="text-[9px] text-gray-400">
-                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M3.5 5.25L7 8.75L10.5 5.25" stroke="#242424" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round" />
-                                </svg>
-
-                            </span>
-                        </button> */}
                         <div className="relative">
                             <button
                                 onClick={() => setOccupancyOpen(!occupancyOpen)}
-                                className="flex items-center justify-between gap-6 px-5 py-2.5 bg-white border border-gray-200 rounded-full hover:border-gray-400 transition-colors uppercase"
+                                className="flex items-center justify-between gap-6 px-5 py-2.5 bg-white border border-gray-200 rounded-full hover:border-gray-400 transition-colors uppercase cursor-pointer"
                             >
                                 <span className="font-manrope-regular font-[700] text-[11px]">
                                     Occupancy
@@ -132,8 +135,7 @@ export default function AccommodationsPage() {
                                     height="14"
                                     viewBox="0 0 14 14"
                                     fill="none"
-                                    className={`transition-transform ${occupancyOpen ? "rotate-180" : ""
-                                        }`}
+                                    className={`transition-transform ${occupancyOpen ? "rotate-180" : ""}`}
                                 >
                                     <path
                                         d="M3.5 5.25L7 8.75L10.5 5.25"
@@ -146,37 +148,35 @@ export default function AccommodationsPage() {
                             </button>
 
                             {occupancyOpen && (
-                                <div className="absolute top-full mt-2 left-0 w-48 bg-white border border-gray-200 rounded-xl shadow-lg z-50">
-                                    <button className="w-full text-left px-4 py-3 hover:bg-gray-50">
-                                        1-2 Guests
-                                    </button>
-                                    <button className="w-full text-left px-4 py-3 hover:bg-gray-50">
-                                        3-4 Guests
-                                    </button>
-                                    <button className="w-full text-left px-4 py-3 hover:bg-gray-50">
-                                        5+ Guests
-                                    </button>
-                                </div>
+                                <motion.div 
+                                    initial={{ opacity: 0, y: 10 }}
+                                    animate={{ opacity: 1, y: 0 }}
+                                    className="absolute top-full mt-2 left-0 w-48 bg-white border border-gray-200 rounded-xl shadow-lg z-50"
+                                >
+                                    <button className="w-full text-left px-4 py-3 hover:bg-gray-50">1-2 Guests</button>
+                                    <button className="w-full text-left px-4 py-3 hover:bg-gray-50">3-4 Guests</button>
+                                    <button className="w-full text-left px-4 py-3 hover:bg-gray-50">5+ Guests</button>
+                                </motion.div>
                             )}
                         </div>
                     </div>
 
-                    {/* Dynamic count status indicator */}
                     <div className="text-[12px] font-[400] font-light text-[#8a929d] tracking-normal italic font-manrope-regular sm:text-right">
                         {filtered.length} {filtered.length === 1 ? "sanctuary" : "sanctuaries"}
                     </div>
                 </div>
+            </motion.section>
 
-
-
-            </section>
-
-            {/* Listings Section */}
+            {/* Listings Section - Scroll-triggered Animation */}
             <section className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-12 py-10">
                 <div className="space-y-12">
                     {filtered.map((item, index) => (
-                        <div
+                        <motion.div
                             key={item.id}
+                            variants={fadeInUp}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true, amount: 0.2 }}
                             className={`grid grid-cols-1 lg:grid-cols-2 gap-14 items-center pt-10 ${index % 2 !== 0 ? "lg:[&>*:first-child]:order-2" : ""
                                 }`}
                         >
@@ -217,15 +217,12 @@ export default function AccommodationsPage() {
                                             strokeWidth="1.75"
                                             viewBox="0 0 24 24"
                                         >
-                                            {/* Front Primary Person Header & Torso */}
                                             <circle cx="10" cy="7" r="4" strokeLinecap="round" strokeLinejoin="round" />
                                             <path
                                                 strokeLinecap="round"
                                                 strokeLinejoin="round"
                                                 d="M2 21v-1.5a4.5 4.5 0 0 1 4.5-4.5h7a4.5 4.5 0 0 1 4.5 4.5V21"
                                             />
-
-                                            {/* Secondary Back Person (Shadow/Double Guest Layout Effect) */}
                                             <path
                                                 strokeLinecap="round"
                                                 strokeLinejoin="round"
@@ -241,8 +238,8 @@ export default function AccommodationsPage() {
                                             <path d="M2 10.666V12.666C2 13.0196 2.14048 13.3588 2.39052 13.6088C2.64057 13.8589 2.97971 13.9993 3.33333 13.9993H5.33333" stroke="#AE2020" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
                                             <path d="M10.6665 13.9993H12.6665C13.0201 13.9993 13.3593 13.8589 13.6093 13.6088C13.8594 13.3588 13.9998 13.0196 13.9998 12.666V10.666" stroke="#AE2020" stroke-width="1.33333" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
-
-                                        {item.area} sq m</span>
+                                        {item.area} sq m
+                                    </span>
                                 </div>
 
                                 <div className="border-t border-gray-200/60 my-6"></div>
@@ -263,7 +260,6 @@ export default function AccommodationsPage() {
                                     className="inline-flex items-center gap-2 bg-[#AE2020] hover:bg-[#AE2020] transition text-white px-8 py-3.5 rounded-full uppercase tracking-[2px] text-[12px] font-[700] shadow-sm font-manrope-regular"
                                 >
                                     View & Book
-
                                     <svg
                                         width="5"
                                         height="9"
@@ -281,7 +277,7 @@ export default function AccommodationsPage() {
                                     </svg>
                                 </Link>
                             </div>
-                        </div>
+                        </motion.div>
                     ))}
                 </div>
             </section>

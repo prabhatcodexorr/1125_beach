@@ -73,17 +73,17 @@ export default function ContactPage() {
             <motion.form variants={staggerContainer} className="mt-16 space-y-10 max-w-lg">
               <motion.div variants={fadeInUp}>
                 <label className="block font-jako-bold text-[11px] uppercase tracking-[2px] text-gray-400 mb-2">Your Name</label>
-                <input type="text" placeholder="John Doe" className="w-full bg-transparent border-b border-gray-200 text-[20px] pb-3 outline-none focus:border-[#9BB9DA] transition-colors" />
+                <input type="text" placeholder="John Doe" className="w-full bg-transparent border-b border-gray-200 text-[20px] pb-3 outline-none focus:border-[#9BB9DA] transition-colors placeholder:text-[#D5C2C2] text-[#5A4F4D] font-jako-medium"  />
               </motion.div>
 
               <motion.div variants={fadeInUp}>
                 <label className="block font-jako-bold text-[11px] uppercase tracking-[2px] text-gray-400 mb-2">Your Email</label>
-                <input type="email" placeholder="john@example.com" className="w-full bg-transparent border-b border-gray-200 text-[20px] pb-3 outline-none focus:border-[#9BB9DA] transition-colors" />
+                <input type="email" placeholder="john@example.com" className="w-full bg-transparent border-b border-gray-200 text-[20px] pb-3 outline-none focus:border-[#9BB9DA] transition-colors placeholder:text-[#D5C2C2] text-[#5A4F4D] font-jako-medium" />
               </motion.div>
 
               <motion.div variants={fadeInUp}>
                 <label className="block font-jako-bold text-[11px] uppercase tracking-[2px] text-gray-400 mb-2">The Whisper</label>
-                <textarea rows={1} placeholder="How may we assist you?" className="w-full bg-transparent border-b border-gray-200 text-[20px] pb-3 outline-none focus:border-[#9BB9DA] transition-colors" />
+                <textarea rows={1} placeholder="How may we assist you?" className="w-full bg-transparent border-b border-gray-200 text-[20px] pb-3 outline-none focus:border-[#9BB9DA] transition-colors placeholder:text-[#D5C2C2] text-[#5A4F4D] font-jako-medium" />
               </motion.div>
 
               <motion.button variants={fadeInUp} className="bg-[#AF2F2C] text-white font-manrope-regular px-10 py-4 rounded-full uppercase tracking-[2px] text-[12px] mt-4">
@@ -110,15 +110,15 @@ export default function ContactPage() {
 
               {/* White Info Box */}
               <div className="absolute bottom-0 right-0 bg-white p-10 lg:p-12  max-w-[250px] lg:max-w-[310px] shadow-sm z-10">
-                <div className="space-y-6">
+                <div className="space-y-6 pr-10">
                   <div>
                     <p className="text-[11px] uppercase tracking-[2px] text-gray-400 mb-2 font-jako-bold">Direct</p>
-                    <p className="font-manrope-regular text-[#2C2422] text-[18px] lg:text-[22px] leading-tight">+233 50 940 4673</p>
-                    <p className="font-manrope-regular text-[#2C2422] text-[18px] lg:text-[22px] leading-tight">+233 24 970 8679</p>
+                    <p className="font-manrope-regular text-[#2C2422] text-[18px] lg:text-[20px] leading-tight">+233 50 940 4673</p>
+                    <p className="font-manrope-regular text-[#2C2422] text-[18px] lg:text-[20px] leading-tight">+233 24 970 8679</p>
                   </div>
                   <div>
                     <p className="text-[11px] uppercase tracking-[2px] text-gray-400 mb-2 font-jako-bold">Location</p>
-                    <p className="font-manrope-regular text-[#2C2422] text-[18px] lg:text-[22px]">Kokrobite</p>
+                    <p className="font-manrope-regular text-[#2C2422] text-[18px] lg:text-[20px]">Kokrobite</p>
                   </div>
                 </div>
               </div>

@@ -2,13 +2,39 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { motion, Variants } from "framer-motion";
+
+// Animation Variants (TypeScript safe)
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.8, ease: "easeOut" } 
+  }
+};
+
+const staggerContainer: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    }
+  }
+};
 
 export default function GalleryPage() {
     return (
         <main className="bg-[#FFFEF8] min-h-screen font-sans text-[#4A4A4A] overflow-x-hidden">
             {/* Hero Section */}
             <section className="px-4 pt-4">
-                <div className="relative h-[350px] md:h-[420px] overflow-hidden rounded-2xl">
+                <motion.div 
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1.2, ease: "easeOut" }}
+                    className="relative h-[350px] md:h-[420px] overflow-hidden rounded-2xl"
+                >
                     <Image
                         src="/images/our-story2.jpg"
                         alt="Our Story"
@@ -18,34 +44,45 @@ export default function GalleryPage() {
                     />
                     <div className="absolute inset-0 bg-black/40" />
                     <div className="absolute inset-0 flex items-center justify-center">
-                        <h1 className="font-ogg-regular text-white text-[50px] md:text-[65px] font-[400] text-center">
+                        <motion.h1 
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.5, duration: 0.8 }}
+                            className="font-ogg-regular text-white text-[50px] md:text-[65px] font-[400] text-center"
+                        >
                             Who we are
-                        </h1>
+                        </motion.h1>
                     </div>
-                </div>
+                </motion.div>
             </section>
 
             {/* Philosophy Section */}
             <section className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-12 py-10 ">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+                <motion.div 
+                    variants={staggerContainer}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, amount: 0.2 }}
+                    className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start"
+                >
                     {/* Left Column: Text content */}
                     <div className="space-y-8">
-                        <div className="  leading-relaxed max-w-lg">
+                        <motion.div variants={fadeInUp} className="leading-relaxed max-w-lg">
                             <p className="text-[14px] font-manrope-regular font-400 text-[#555555]" >
                                 Nestled on the pristine coastline, 1125 Beach Villa was conceived with a
                                 singular vision: to create a sanctuary where luxury meets natural beauty. Our
                                 property offers an unparalleled escape from the everyday, blending modern
                                 architecture with the serene backdrop of the ocean.
                             </p>
-                            <p className="text-[14px] font-manrope-regular font-400 text-[#555555]" >
+                            <p className="mt-4 text-[14px] font-manrope-regular font-400 text-[#555555]" >
                                 Since opening our doors, we have been dedicated to providing our guests
                                 with unforgettable experiences. Whether you're staying in our expansive 5-
                                 bedroom beach house or finding solace in one of our private chalets, every
                                 detail has been thoughtfully curated for your comfort.
                             </p>
-                        </div>
+                        </motion.div>
 
-                        <div className="space-y-4">
+                        <motion.div variants={fadeInUp} className="space-y-4">
                             <h2 className="font-ogg-regular text-[24px] font-[500]  text-[#66839C] leading-tight">
                                 Our Philosophy
                             </h2>
@@ -57,25 +94,33 @@ export default function GalleryPage() {
                                 exceed your expectations while respecting the environment that makes our
                                 location so special.
                             </p>
-                        </div>
+                        </motion.div>
                     </div>
 
                     {/* Right Column: Image */}
-                    <div className="relative h-[400px] md:h-[439px] w-full rounded-sm overflow-hidden">
+                    <motion.div 
+                        variants={fadeInUp}
+                        className="relative h-[400px] md:h-[439px] w-full rounded-sm overflow-hidden"
+                    >
                         <Image
                             src="/images/beach-walk.jpg"
                             alt="Walking on the beach"
                             fill
                             className="object-cover"
                         />
-                    </div>
-                </div>
+                    </motion.div>
+                </motion.div>
             </section>
 
-            {/* CTA Section with Bottom Pattern Image */}
+            {/* CTA Section */}
             <section className="relative pt-12 pb-40 md:pb-64 flex flex-col items-center text-center px-6 overflow-hidden">
-                {/* Content Container (Ensure this is above the pattern) */}
-                <div className="relative z-10 flex flex-col items-center md:mb-20 mb-10">
+                <motion.div 
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="relative z-10 flex flex-col items-center md:mb-20 mb-10"
+                >
                     {/* Surfboard Top Icon */}
                     <svg
                         width="69"
@@ -98,40 +143,16 @@ export default function GalleryPage() {
                     </h3>
 
                     <Link
-  href="/our-story"
-  className="
-    mt-12
-    inline-flex
-    items-center
-    justify-center
-    h-[52px]
-    px-[25px]
-    border border-[#AF2F2C]
-    rounded-[50px]
-    bg-[#AE2020]
-    hover:bg-[#AE2020]
-    text-white
-    font-manrope-regular
-    font-[700]
-    text-[14px]
-    leading-[16px]
-    tracking-[1.2px]
-    uppercase
-    transition-all
-    duration-300
-    cursor-pointer
-  "
->
-  Discover Our Story
-</Link>
-                </div>
+                        href="/our-story"
+                        className="mt-12 inline-flex items-center justify-center h-[52px] px-[25px] border border-[#AF2F2C] rounded-[50px] bg-[#AE2020] hover:bg-[#AE2020] text-white font-manrope-regular font-[700] text-[14px] leading-[16px] tracking-[1.2px] uppercase transition-all duration-300 cursor-pointer"
+                    >
+                        Discover Our Story
+                    </Link>
+                </motion.div>
 
-    
-
-                {/* Full Width Pattern Image at the bottom */}
-                {/* <div className="absolute bottom-0 left-0 w-full h-[150px] md:h-[250px] pointer-events-none"> */}
+                {/* Pattern SVG at the bottom */}
                 <div className="absolute bottom-0 left-0 w-full overflow-hidden pointer-events-none ">
-                    <svg   className=" md:w-full h-[200px] md:h-auto" preserveAspectRatio="xMidYMax meet" viewBox="0 0 1071 282" fill="none" xmlns="http://www.w3.org/2000/svg">
+                   <svg   className=" md:w-full h-[200px] md:h-auto" preserveAspectRatio="xMidYMax meet" viewBox="0 0 1071 282" fill="none" xmlns="http://www.w3.org/2000/svg">
 
 
                         <g clip-path="url(#clip0_485_482)">
@@ -198,7 +219,6 @@ export default function GalleryPage() {
                             </clipPath>
                         </defs>
                     </svg>
-
                 </div>
             </section>
         </main>

@@ -70,7 +70,6 @@ export default async function AccommodationDetailPage({
             </section>
 
             {/* Tabs Section */}
-            {/* Tabs Section */}
             <section className="max-w-[1440px] mx-auto relative z-30 px-12 mt-6 sm:-mt-[70px] md:-mt-[85px] mb-4 sm:mb-0 hidden lg:block ">
                 <div className="grid grid-cols-2 gap-2.5 sm:flex sm:items-end sm:gap-2.5">
                     {tabs.map((tab) => {
@@ -116,7 +115,6 @@ export default async function AccommodationDetailPage({
                         </div>
 
                         {/* RIGHT COLUMN: Details & Booking */}
-                        {/* RIGHT COLUMN: Description & SVG Icons Integration */}
                         <div className="w-full lg:col-span-7 flex flex-col justify-between min-h-[440px] pt-2">
                             <div>
                                 <h2 className="font-ogg-regular text-[#7CA5C8] text-[38px] font-[500] lg:text-[38px] leading-tight ">

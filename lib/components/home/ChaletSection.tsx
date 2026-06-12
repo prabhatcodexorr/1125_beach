@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, Variants } from "framer-motion";
 
 const slides = [
   {
@@ -19,11 +19,11 @@ const slides = [
   },
 ];
 
-// SMOOTH TRANSITION CONFIG
+// Slider Transition Config
 const variants = {
   enter: (direction: number) => ({
     x: direction > 0 ? "100%" : "-100%",
-    opacity: 0.8, // Halke se fade ke saath slide aayegi
+    opacity: 0.8,
   }),
   center: {
     zIndex: 1,
@@ -37,6 +37,16 @@ const variants = {
   }),
 };
 
+// Section Scroll Animation Variant
+const fadeInUp: Variants = {
+  hidden: { opacity: 0, y: 40 },
+  visible: { 
+    opacity: 1, 
+    y: 0, 
+    transition: { duration: 0.8, ease: "easeOut" } 
+  }
+};
+
 export default function ChaletSection() {
   const [[page, direction], setPage] = useState([0, 0]);
   const current = page;
@@ -47,8 +57,15 @@ export default function ChaletSection() {
   };
 
   return (
-    <section className="bg-[#FFFEF8] py-10 md:py-16 lg:py-16">
-      <div className="relative w-full h-[270px] sm:h-[350px] md:h-[500px] lg:h-[569px] overflow-hidden">
+    <section className="bg-[#FFFEF8] py-10 md:py-16 lg:py-16 overflow-hidden">
+      {/* Outer wrapper for scroll reveal */}
+      <motion.div
+        variants={fadeInUp}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.2 }}
+        className="relative w-full h-[270px] sm:h-[350px] md:h-[500px] lg:h-[569px] overflow-hidden"
+      >
         
         {/* --- ULTRA SMOOTH SLIDER --- */}
         <AnimatePresence initial={false} custom={direction}>
@@ -60,7 +77,6 @@ export default function ChaletSection() {
             animate="center"
             exit="exit"
             transition={{
-              // Easing curve for luxury feel (Slow in, Slow out)
               x: { duration: 0.8, ease: [0.4, 0.0, 0.2, 1] },
               opacity: { duration: 0.4 }
             }}
@@ -76,17 +92,17 @@ export default function ChaletSection() {
           </motion.div>
         </AnimatePresence>
 
-        {/* Overlay - Z-index elevated to stay above moving slides */}
+        {/* Overlay */}
         <div className="absolute inset-0 bg-black/11 z-[10]" />
 
         {/* White Border */}
         <div className="absolute inset-[16px] md:inset-[18px] border-2 border-white z-[11] pointer-events-none" />
 
-        {/* Left Arrow (Same UI) */}
+        {/* Left Arrow */}
         <button
           onClick={() => paginate(-1)}
           aria-label="Previous Slide"
-          className="absolute left-[24px] sm:left-[30px] md:left-[45px] lg:left-[65px] top-1/2 -translate-y-1/2 z-20 w-[32px] h-[32px] sm:w-[40px] sm:h-[40px] lg:w-[48px] lg:h-[48px] flex items-center justify-center transition-transform hover:scale-110 active:scale-95"
+          className="absolute left-[24px] sm:left-[30px] md:left-[45px] lg:left-[65px] top-1/2 -translate-y-1/2 z-20 w-[32px] h-[32px] sm:w-[40px] sm:h-[40px] lg:w-[48px] lg:h-[48px] flex items-center justify-center transition-transform hover:scale-110 active:scale-95 cursor-pointer"
         >
           <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-md">
             <mask id="mask0_prev" style={{ maskType: "alpha" }} maskUnits="userSpaceOnUse" x="0" y="0" width="48" height="48">
@@ -98,11 +114,11 @@ export default function ChaletSection() {
           </svg>
         </button>
 
-        {/* Right Arrow (Same UI) */}
+        {/* Right Arrow */}
         <button
           onClick={() => paginate(1)}
           aria-label="Next Slide"
-          className="absolute right-[24px] sm:right-[30px] md:right-[45px] lg:right-[65px] top-1/2 -translate-y-1/2 z-20 w-[32px] h-[32px] sm:w-[40px] sm:h-[40px] lg:w-[48px] lg:h-[48px] flex items-center justify-center transition-transform hover:scale-110 active:scale-95"
+          className="absolute right-[24px] sm:right-[30px] md:right-[45px] lg:right-[65px] top-1/2 -translate-y-1/2 z-20 w-[32px] h-[32px] sm:w-[40px] sm:h-[40px] lg:w-[48px] lg:h-[48px] flex items-center justify-center transition-transform hover:scale-110 active:scale-95 cursor-pointer"
         >
           <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full drop-shadow-md">
             <mask id="mask0_next" style={{ maskType: "alpha" }} maskUnits="userSpaceOnUse" x="0" y="0" width="48" height="48">
@@ -114,7 +130,7 @@ export default function ChaletSection() {
           </svg>
         </button>
 
-        {/* Center Heading (Static position, dynamic content) */}
+        {/* Center Heading */}
         <div className="absolute inset-0 z-[15] flex items-center justify-center px-4 pointer-events-none">
           <AnimatePresence mode="wait">
             <motion.h2
@@ -131,7 +147,7 @@ export default function ChaletSection() {
             </motion.h2>
           </AnimatePresence>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
