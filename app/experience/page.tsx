@@ -28,7 +28,7 @@ export default function EventsPage() {
 
 
       {/* Event Cards */}
-      <section className="max-w-[1400px] mx-auto px-6 py-20">
+      <section className="max-w-[1400px]  mx-auto px-6 py-20  md:px-10 lg:px-12 ">
         <div className="grid md:grid-cols-2 gap-8">
           {/* Wedding */}
           <div className="bg-white rounded-2xl overflow-hidden border border-gray-200">

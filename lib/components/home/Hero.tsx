@@ -31,14 +31,7 @@ export default function Hero() {
             {/* Mobile Hero */}
             <div
                className="block md:hidden relative h-[720px] overflow-hidden"
-            //   style={{
-            //     maskImage: "url('/Vector.svg')",
-            //     WebkitMaskImage: "url('/Vector.svg')",
-            //     maskSize: "100% 100%",
-            //     WebkitMaskSize: "100% 100%",
-            //     maskRepeat: "no-repeat",
-            //     WebkitMaskRepeat: "no-repeat",
-            //   }}
+           
             >
                <Image
                   src="/images/hero.jpg"
