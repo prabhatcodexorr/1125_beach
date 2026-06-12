@@ -17,7 +17,7 @@ export default function EventsPage() {
           <div className="absolute inset-0 bg-[#000]/40" />
 
           <div className="absolute inset-0 flex items-center justify-center">
-             <h1 className="font-serif text-white text-[45px] md:text-[65px] font-[400] font-ogg-regular text-center tracking-wide leading-none">
+            <h1 className="font-serif text-white text-[45px] md:text-[65px] font-[400] font-ogg-regular text-center tracking-wide leading-none">
               Host your most unforgettable <br />event
             </h1>
           </div>
@@ -25,28 +25,10 @@ export default function EventsPage() {
       </section>
 
 
-      {/* <section className="px-4 mt-4">
-                      <div className="relative h-[350px] md:h-[420px] overflow-hidden rounded-2xl">
-                         <Image
-            src="/images/experience-banner.jpg"
-            alt="Experience"
-            fill
-            priority
-            className="object-cover"
-          />
-      
-                          <div className="absolute inset-0 bg-black/20" />
-      
-                          <div className="absolute inset-0 flex items-center justify-center">
-                              <h1 className="font-ogg-regular font-[400] text-white text-[50px] md:text-[55px] lg:text-[65px] text-center">
-                                  Host your most unforgettable <br />event
-                              </h1>
-                          </div>
-                      </div>
-                  </section> */}
+
 
       {/* Event Cards */}
-      <section className="max-w-[1200px] mx-auto px-6 py-20">
+      <section className="max-w-[1400px] mx-auto px-6 py-20">
         <div className="grid md:grid-cols-2 gap-8">
           {/* Wedding */}
           <div className="bg-white rounded-2xl overflow-hidden border border-gray-200">
@@ -92,7 +74,7 @@ export default function EventsPage() {
                 Corporate
               </p>
 
-             <h3 className="mt-3 text-[24px] lg:text-[24px]  font-[400] font-ogg-regular text-[#89a7cb]">
+              <h3 className="mt-3 text-[24px] lg:text-[24px]  font-[400] font-ogg-regular text-[#89a7cb]">
                 Executive Retreats
               </h3>
 

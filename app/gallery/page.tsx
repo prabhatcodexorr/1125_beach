@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-
-
+import { motion } from "framer-motion"; // 1. Import Framer Motion
 
 const galleryImages = [   
     { id: 1, src: "/images/gallery/1.jpg", height: "h-[282px]" },
@@ -26,12 +25,31 @@ const categories = [
     "Pool & Beach",
 ];
 
+// Animation Variants
+const fadeInUp = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } }
+};
+
+const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: { staggerChildren: 0.1 }
+    }
+};
+
 export default function GalleryPage() {
     return (
         <main className="bg-[#FFFEF8] min-h-screen">
-            {/* Hero Section - No changes needed here */}
+            {/* Hero Section */}
             <section className="px-4 mt-4 overflow-hidden">
-                <div className="relative h-[350px] md:h-[420px] overflow-hidden rounded-2xl">
+                <motion.div 
+                    initial={{ opacity: 0, scale: 1.05 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 1.2, ease: "easeOut" }}
+                    className="relative h-[350px] md:h-[420px] overflow-hidden rounded-2xl"
+                >
                     <Image
                         src="/images/b0a224ce805c59442793004b3d39bd16a7496666 (1).jpg"
                         alt="Gallery"
@@ -41,19 +59,29 @@ export default function GalleryPage() {
                     />
                     <div className="absolute inset-0 bg-[#00000033]" />
                     <div className="absolute inset-0 flex items-center justify-center">
-                        <h1 className="font-ogg-regular text-white text-[50px] md:text-[65px] font-[400] text-center">
+                        <motion.h1 
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.5, duration: 0.8 }}
+                            className="font-ogg-regular text-white text-[50px] md:text-[65px] font-[400] text-center"
+                        >
                             Gallery
-                        </h1>
+                        </motion.h1>
                     </div>
-                </div>
+                </motion.div>
             </section>
 
-            {/* Category Slider - FIXED ALIGNMENT */}
-            <section className="bg-[#9BB9DA] w-full mt-4 ">
-                <div className="max-w-[1400px] mx-auto">
+            {/* Category Slider */}
+            <motion.section 
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ delay: 0.3, duration: 0.8 }}
+                className="bg-[#9BB9DA] w-full mt-4 "
+            >
+                <div className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-12  ">
                     
                     <div 
-                        className="overflow-x-auto px-4 md:px-10 lg:px-[20px]"
+                        className="overflow-x-auto "
                         style={{ 
                             scrollbarWidth: 'none', 
                             msOverflowStyle: 'none',
@@ -87,30 +115,36 @@ export default function GalleryPage() {
                                     {item}
                                 </button>
                             ))}
-                            {/* Extra spacer for end-padding consistency on mobile */}
                             <div className="w-4 md:hidden" />
                         </div>
                     </div>
                 </div>
-            </section>
+            </motion.section>
 
-            {/* Gallery Grid - Stays the same for masonry effect */}
-            <section className="max-w-[1400px] mx-auto px-6 py-8">
-                <div className="columns-1 md:columns-2 lg:columns-3 gap-5 space-y-5">
+            {/* Gallery Grid */}
+            <section className="max-w-[1400px] mx-auto px-6 py-8  md:px-10 lg:px-12 ">
+                <motion.div 
+                    variants={staggerContainer}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: true, margin: "-50px" }}
+                    className="columns-1 md:columns-2 lg:columns-3 gap-5 space-y-5"
+                >
                     {galleryImages.map((image) => (
-                        <div
+                        <motion.div
                             key={image.id}
-                            className={`relative ${image.height} overflow-hidden rounded-lg break-inside-avoid shadow-sm`}
+                            variants={fadeInUp}
+                            className={`relative ${image.height} overflow-hidden rounded-lg break-inside-avoid shadow-sm group`}
                         >
                             <Image
                                 src={image.src}
                                 alt={`Gallery ${image.id}`}
                                 fill
-                                className="object-cover hover:scale-105 transition duration-500"
+                                className="object-cover transition duration-700 ease-in-out group-hover:scale-110"
                             />
-                        </div>
+                        </motion.div>
                     ))}
-                </div>
+                </motion.div>
             </section>
         </main>
     );

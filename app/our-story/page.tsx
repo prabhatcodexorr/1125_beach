@@ -26,7 +26,7 @@ export default function GalleryPage() {
             </section>
 
             {/* Philosophy Section */}
-            <section className="max-w-7xl mx-auto px-6 py-16 md:py-24">
+            <section className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-12 py-10 ">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
                     {/* Left Column: Text content */}
                     <div className="space-y-8">

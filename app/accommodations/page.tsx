@@ -22,31 +22,29 @@ export default function AccommodationsPage() {
 
     return (
         <main className="bg-[#FFFEF8] min-h-screen font-sans antialiased text-[#444444]">
-            {/* Hero Section */}
+
             <section className="px-4 mt-4">
-                <div className="relative h-[350px] md:h-[420px] overflow-hidden rounded-2xl max-w-[1340px] mx-auto">
+                <div className="relative h-[350px] md:h-[420px]  overflow-hidden rounded-2xl">
                     <Image
                         src="/images/accommodation-banner.jpg"
-                        alt="Gallery"
+                        alt="Experience"
                         fill
                         priority
                         className="object-cover"
                     />
-                    <div className="absolute inset-0 bg-black/40" />
+
+                    <div className="absolute inset-0 bg-[#000]/40" />
+
                     <div className="absolute inset-0 flex items-center justify-center">
                         <h1 className="font-serif text-white text-[45px] md:text-[65px] font-[400] font-ogg-regular text-center tracking-wide leading-none">
-                            Find Your Perfect
-                            <br />
-                            Escape
+                            Host your most unforgettable <br />event
                         </h1>
                     </div>
                 </div>
             </section>
 
             {/* FIGMA FILTER INTERFACE INTEGRATION */}
-            <section className="max-w-[1280px] mx-auto px-8 pt-10 pb-2">
-
-                {/* Upper Layer: Dropdown Actions & Status Counter (image_fe7e0a.png) */}
+            <section className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-12 pt-10 pb-2">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-gray-200/60 pb-6">
                     <div className="flex flex-wrap items-center gap-3 text-[11px] font-semibold tracking-widest text-[#7c828c]">
 
@@ -174,7 +172,7 @@ export default function AccommodationsPage() {
             </section>
 
             {/* Listings Section */}
-            <section className="max-w-[1280px] mx-auto px-6 py-10">
+            <section className="max-w-[1440px] mx-auto px-6 md:px-10 lg:px-12 py-10">
                 <div className="space-y-12">
                     {filtered.map((item, index) => (
                         <div

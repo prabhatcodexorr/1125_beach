@@ -77,7 +77,7 @@ export default function ChaletSection() {
         </AnimatePresence>
 
         {/* Overlay - Z-index elevated to stay above moving slides */}
-        <div className="absolute inset-0 bg-black/30 z-[10]" />
+        <div className="absolute inset-0 bg-black/11 z-[10]" />
 
         {/* White Border */}
         <div className="absolute inset-[16px] md:inset-[18px] border-2 border-white z-[11] pointer-events-none" />

@@ -1,123 +1,132 @@
+"use client";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
+
+const fadeInUp = {
+  hidden: { opacity: 0, y: 30 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+};
+
+const staggerContainer = {
+  hidden: { opacity: 0 },
+  visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
+};
 
 export default function ContactPage() {
-    return (
-        <main className="bg-[#f7f4ef] min-h-screen">
-            
-              <section className="px-4 mt-4">
-                      <div className="relative h-[350px] md:h-[420px] overflow-hidden rounded-2xl">
-                          <Image
-                             src="/images/accommodation-banner.jpg"
-                              alt="Gallery"
-                              fill
-                              priority
-                              className="object-cover"
-                          />
-      
-                          <div className="absolute inset-0 bg-black/40" />
-      
-                          <div className="absolute inset-0 flex items-center justify-center">
-                              <h1 className="font-ogg-regular font-[400] text-white text-[50px] md:text-[55px] lg:text-[65px]">
-                                  Contact Us
-                              </h1>
-                          </div>
-                      </div>
-                  </section>
+  return (
+    <main className="bg-[#FFFEF8] min-h-screen">
+      {/* Banner Section */}
+      <motion.section 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 1 }}
+        className="px-4 mt-4"
+      >
+        <div className="relative h-[350px] md:h-[420px] overflow-hidden rounded-2xl">
+          <motion.div
+            initial={{ scale: 1.1 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 1.5, ease: "easeOut" }}
+            className="absolute inset-0"
+          >
+            <Image
+              src="/images/accommodation-banner.jpg"
+              alt="Banner"
+              fill
+              priority
+              className="object-cover"
+            />
+          </motion.div>
+          <div className="absolute inset-0 bg-black/30" />
+          <div className="absolute inset-0 flex items-center justify-center">
+            <h1 className="font-ogg-regular font-[400] text-white text-[50px] md:text-[55px] lg:text-[75px]">
+              Contact Us
+            </h1>
+          </div>
+        </div>
+      </motion.section>
 
-            {/* Contact Section */}
-            <section className="max-w-[1200px] mx-auto px-6 lg:px-12 py-24">
-                <div className="grid lg:grid-cols-2 gap-20 items-start">
-                    {/* Left */}
-                    <div>
-                        <h2 className="font-ogg-regular text-[70px] lg:text-[96px] font-[400] leading-none text-[#222]">
-                            Get in
-                        </h2>
+      {/* Main Content Section */}
+      <section className="w-full pt-[89.5px] pb-24">
+        <div className="flex flex-col lg:flex-row items-start">
+          
+          {/* LEFT SIDE - Form (Original Alignment) */}
+          <motion.div 
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="w-full lg:flex-1 px-6 md:px-12 lg:pl-[7%] xl:pl-[10%] mb-16 lg:mb-0"
+          >
+            <motion.h2 variants={fadeInUp} className="font-ogg-regular text-[80px] lg:text-[110px] font-[400] leading-[0.85] text-[#222]">
+              Get in
+            </motion.h2>
+            <motion.h2 variants={fadeInUp} className="font-ogg-regular text-[80px] lg:text-[110px] font-[400] leading-[0.85] text-[#9BB9DA]">
+              Touch
+            </motion.h2>
 
-                        <h2 className="font-ogg-regular text-[70px] lg:text-[96px] font-[400] leading-none text-[#9BB9DA]">
-                            Touch
-                        </h2>
+            <motion.p variants={fadeInUp} className="mt-10 max-w-md font-jako-medium text-[#5A4F4D] text-[18px] leading-relaxed">
+              For exclusive inquiries, private events, or to simply begin your journey to barefoot luxury. We await your whisper.
+            </motion.p>
 
-                        <p className="mt-8 max-w-md font-jako-medium text-[#5A4F4D] lg:text-[18px] font-[400] leading-7">
-                            For exclusive inquiries, private events, or to simply begin your
-                            journey to barefoot luxury. We await your whisper.
-                        </p>
+            <motion.form variants={staggerContainer} className="mt-16 space-y-10 max-w-lg">
+              <motion.div variants={fadeInUp}>
+                <label className="block font-jako-bold text-[11px] uppercase tracking-[2px] text-gray-400 mb-2">Your Name</label>
+                <input type="text" placeholder="John Doe" className="w-full bg-transparent border-b border-gray-200 text-[20px] pb-3 outline-none focus:border-[#9BB9DA] transition-colors" />
+              </motion.div>
 
-                        <form className="mt-12 space-y-8">
-                            <div>
-                                <label className="block font-jako-bold text-[11px] font-[400] uppercase tracking-[2px] text-gray-400 mb-2">
-                                    Your Name
-                                </label>
+              <motion.div variants={fadeInUp}>
+                <label className="block font-jako-bold text-[11px] uppercase tracking-[2px] text-gray-400 mb-2">Your Email</label>
+                <input type="email" placeholder="john@example.com" className="w-full bg-transparent border-b border-gray-200 text-[20px] pb-3 outline-none focus:border-[#9BB9DA] transition-colors" />
+              </motion.div>
 
-                                <input
-                                    type="text"
-                                    placeholder="John Doe"
-                                    className="w-full bg-transparent border-b border-gray-300 text-[20px] font-[400] placeholder:text-[#D5C2C2]  text-[#5A4F4D]  font-jako-medium pb-3 outline-none"
-                                />
-                            </div>
+              <motion.div variants={fadeInUp}>
+                <label className="block font-jako-bold text-[11px] uppercase tracking-[2px] text-gray-400 mb-2">The Whisper</label>
+                <textarea rows={1} placeholder="How may we assist you?" className="w-full bg-transparent border-b border-gray-200 text-[20px] pb-3 outline-none focus:border-[#9BB9DA] transition-colors" />
+              </motion.div>
 
-                            <div>
-                                <label className="block font-jako-bold text-[11px] font-[400] uppercase tracking-[2px] text-gray-400 mb-2">
-                                    Your Email
-                                </label>
+              <motion.button variants={fadeInUp} className="bg-[#AF2F2C] text-white font-manrope-regular px-10 py-4 rounded-full uppercase tracking-[2px] text-[12px] mt-4">
+                Send Message
+              </motion.button>
+            </motion.form>
+          </motion.div>
 
-                                <input
-                                    type="email"
-                                    placeholder="john@example.com"
-                                    className="w-full bg-transparent font-jako-medium border-b text-[20px] font-[400] border-gray-300 placeholder:text-[#D5C2C2]  text-[#5A4F4D]  pb-3 outline-none"
-                                />
-                            </div>
+          {/* RIGHT SIDE - Exact Figma Specs: 480x600 & Sticking to Right Edge */}
+          <div className="w-full md:w-[80px] lg:w-[600px] ml-auto mt-16">
+            <motion.div 
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+              className="relative w-full h-[500px] lg:h-[600px] bg-gray-100" 
+            >
+              <Image
+                src="/images/contact-room.jpg"
+                alt="Room"
+                fill
+                className="object-cover"
+              />
 
-                            <div>
-                                <label className="block font-jako-bold text-[11px] font-[400] uppercase tracking-[2px] text-gray-400 mb-2">
-                                    The Whisper
-                                </label>
-
-                                <textarea
-                                    rows={4}
-                                    placeholder="How may we assist you?"
-                                    className="w-full bg-transparent font-jako-medium border-b text-[20px] font-[400] border-gray-300 placeholder:text-[#D5C2C2]  text-[#5A4F4D]  pb-3 resize-none outline-none"
-                                />
-                            </div>
-
-                            <button
-                                type="submit"
-                                className="bg-[#AF2F2C] text-[#FFFEF8] font-manrope-regular font-[500] rounded-full px-8 py-4 uppercase tracking-[2px] text-[12px] cursor-pointer "
-                            >
-                                Send Message
-                            </button>
-                        </form>
-                    </div>
-
-                    {/* Right */}
-                    <div className="relative">
-                        <div className="relative h-[600px]">
-                            <Image
-                                src="/images/contact-room.jpg"
-                                alt="Room"
-                                fill
-                                className="object-cover"
-                            />
-                        </div>
-
-                        <div className="absolute bottom-0 right-0 bg-[#f7f4ef] p-10 w-[250px]">
-                            <p className="text-[11px] font-[400] uppercase font-jako-bold tracking-[2px] text-gray-400">
-                                Direct
-                            </p>
-
-                            <p className="mt-4 font-manrope-regular text-[#2C2422] font-[400] text-[20px]">+233 50 940 4673</p>
-                            <p className="font-manrope-regular mt-1 text-[#2C2422] font-[400] text-[20px]">+233 24 970 8679</p>
-
-                            <p className="mt-8 text-[11px] font-[400] uppercase font-jako-bold tracking-[2px] text-gray-400">
-                                Location
-                            </p>
-
-                            <p className="mt-2 font-manrope-regular text-[#2C2422] font-[400] text-[20px]">Kokrobite</p>
-                        </div>
-                    </div>
+              {/* White Info Box */}
+              <div className="absolute bottom-0 right-0 bg-white p-10 lg:p-12  max-w-[250px] lg:max-w-[310px] shadow-sm z-10">
+                <div className="space-y-6">
+                  <div>
+                    <p className="text-[11px] uppercase tracking-[2px] text-gray-400 mb-2 font-jako-bold">Direct</p>
+                    <p className="font-manrope-regular text-[#2C2422] text-[18px] lg:text-[22px] leading-tight">+233 50 940 4673</p>
+                    <p className="font-manrope-regular text-[#2C2422] text-[18px] lg:text-[22px] leading-tight">+233 24 970 8679</p>
+                  </div>
+                  <div>
+                    <p className="text-[11px] uppercase tracking-[2px] text-gray-400 mb-2 font-jako-bold">Location</p>
+                    <p className="font-manrope-regular text-[#2C2422] text-[18px] lg:text-[22px]">Kokrobite</p>
+                  </div>
                 </div>
-            </section>
+              </div>
+            </motion.div>
+          </div>
 
-
-        </main>
-    );
+        </div>
+      </section>
+    </main>
+  );
 }

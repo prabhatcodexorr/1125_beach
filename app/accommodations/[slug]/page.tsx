@@ -71,7 +71,7 @@ export default async function AccommodationDetailPage({
 
             {/* Tabs Section */}
             {/* Tabs Section */}
-            <section className="max-w-[1240px] mx-auto relative z-30 px-6 mt-6 sm:-mt-[70px] md:-mt-[85px] mb-4 sm:mb-0 hidden lg:block">
+            <section className="max-w-[1440px] mx-auto relative z-30 px-12 mt-6 sm:-mt-[70px] md:-mt-[85px] mb-4 sm:mb-0 hidden lg:block ">
                 <div className="grid grid-cols-2 gap-2.5 sm:flex sm:items-end sm:gap-2.5">
                     {tabs.map((tab) => {
                         const isActive = slug === tab.slug;
@@ -98,7 +98,7 @@ export default async function AccommodationDetailPage({
             </section>
 
             {/* Main Details Showcase Card (DESKTOP) */}
-            <section className="max-w-[1240px] mx-auto relative z-20 px-6 pb-20 hidden lg:block">
+            <section className="max-w-[1440px] mx-auto relative z-20 px-12 pb-20 hidden lg:block">
                 <div className="bg-white rounded-3xl sm:rounded-t-none sm:rounded-tr-3xl sm:rounded-b-3xl shadow-xl border border-[#ebe5dd] p-6 md:p-10">
                     <div className="grid lg:grid-cols-12 gap-10 items-start">
 
@@ -859,18 +859,18 @@ export default async function AccommodationDetailPage({
 
                                 {/* <BookingBox />
                                  */}
-                                 {"chalets" === "chalets" && (
-                                            <div className="flex items-center gap-2.5 mb-5 ml-1">
-                                                {/* Green Dot (Pulse effect optional: animate-pulse) */}
-                                                <span className="w-3 h-3 rounded-full bg-[#00C950]" />
+                                {"chalets" === "chalets" && (
+                                    <div className="flex items-center gap-2.5 mb-5 ml-1">
+                                        {/* Green Dot (Pulse effect optional: animate-pulse) */}
+                                        <span className="w-3 h-3 rounded-full bg-[#00C950]" />
 
-                                                {/* Available Text */}
-                                                <p className="text-[#AF2F2C] text-[12px] font-[400] font-jeko-black tracking-[1.5px] uppercase">
-                                                    5 Chalets Available
-                                                </p>
-                                            </div>
-                                        )}
-                                 <BookingBox showQuantity={"chalets" === "chalets"} />
+                                        {/* Available Text */}
+                                        <p className="text-[#AF2F2C] text-[12px] font-[400] font-jeko-black tracking-[1.5px] uppercase">
+                                            5 Chalets Available
+                                        </p>
+                                    </div>
+                                )}
+                                <BookingBox showQuantity={"chalets" === "chalets"} />
 
                                 <div className="mt-9 flex justify-center sm:block">
 
