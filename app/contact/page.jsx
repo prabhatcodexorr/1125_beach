@@ -57,7 +57,7 @@ export default function ContactPage() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="w-full lg:flex-1 px-6 md:px-12 lg:pl-[7%] xl:pl-[10%] mb-16 lg:mb-0"
+            className="w-full lg:flex-1 px-6 md:px-12 lg:pl-[7%] xl:pl-[7%] mb-16 lg:mb-0"
           >
             <motion.h2 variants={fadeInUp} className="font-ogg-regular text-[80px] lg:text-[110px] font-[400] leading-[0.85] text-[#222]">
               Get in

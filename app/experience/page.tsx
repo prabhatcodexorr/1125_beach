@@ -28,7 +28,7 @@ export default function EventsPage() {
 
 
       {/* Event Cards */}
-      <section className="max-w-[1400px]  mx-auto px-6 py-20  md:px-10 lg:px-7 ">
+      <section className="max-w-[1400px]  mx-auto px-6 py-20 sm:px-12 md:px-14 lg:px-10 xl:px-7 ">
         <div className="grid md:grid-cols-2 gap-8">
           {/* Wedding */}
           <div className="bg-white rounded-2xl overflow-hidden border border-gray-200">
@@ -42,7 +42,7 @@ export default function EventsPage() {
             </div>
 
             <div className="p-8">
-              <p className="text-[11px] font-[700] font-manrope-regular uppercase tracking-[2px] text-[#b8322a]">
+              <p className="text-[11px] font-[700] font-manrope-regular uppercase tracking-[2px] text-[#AE2020]">
                 Celebrations
               </p>
 
@@ -70,7 +70,7 @@ export default function EventsPage() {
             </div>
 
             <div className="p-8">
-              <p className="text-[11px] font-[700] font-manrope-regular uppercase tracking-[2px] text-[#b8322a]">
+              <p className="text-[11px] font-[700] font-manrope-regular uppercase tracking-[2px] text-[#AE2020]">
                 Corporate
               </p>
 
