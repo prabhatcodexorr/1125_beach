@@ -22,13 +22,13 @@ export default function WhyBookSection() {
     <section className="bg-[#FFFEF8] pt-16 sm:pt-24 lg:pt-[120px] pb-16 lg:pb-[80px] overflow-hidden">
       <div className="max-w-[1440px] mx-auto px-6 sm:px-10 lg:px-[60px]">
 
-        <div className="grid grid-cols-1 lg:grid-cols-[454px_429px] justify-center gap-12 lg:gap-[70px] items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 justify-between gap-12 lg:gap-[100px] items-start">
 
           {/* LEFT SIDE */}
           <div className="flex flex-col">
 
             {/* Image */}
-            <div className="relative w-full max-w-[454px] aspect-[454/243] overflow-hidden mx-auto lg:mx-0">
+            <div className="relative w-full max-w-[454px] md:max-w-[550px] lg:max-w-[600px] aspect-[454/243] overflow-hidden mx-auto lg:mx-0">
               <Image
                 src="/images/chalet.jpg"
                 alt="Why Book With Us"
@@ -90,6 +90,8 @@ export default function WhyBookSection() {
 
                 w-full
                 max-w-[429px]
+                md:max-w-[550px]
+                lg:max-w-[600px]
 
                 mx-auto
                 lg:mx-0

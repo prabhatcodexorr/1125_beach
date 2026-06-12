@@ -34,12 +34,12 @@ export default function TourSection() {
   return (
     <section className="relative overflow-hidden bg-[#7CA5C8] py-[80px] lg:py-[100px] w-full select-none">
       {/* Background Vectors - No Change */}
-      <div className="absolute bottom-[-30px] left-[-60px] hidden lg:block w-[245px] h-[704px] pointer-events-none z-0">
+      <div className="absolute bottom-[-10px] left-[-30px] hidden lg:block w-[305px] h-[904px] pointer-events-none z-0">
         <div className="relative w-full h-full brightness-0 invert">
           <Image src="/images/Group 44.png" alt="Vector" fill className="object-contain object-bottom" draggable={false} />
         </div>
       </div>
-      <div className="absolute bottom-[-30px] right-[-60px] hidden lg:block w-[245px] h-[704px] pointer-events-none z-0">
+      <div className="absolute bottom-[-15px] right-[-30px] hidden lg:block w-[305px] h-[904px] pointer-events-none z-0">
         <div className="relative w-full h-full brightness-0 invert">
           <Image src="/images/Group 43.png" alt="Vector" fill className="object-contain object-bottom" draggable={false} />
         </div>

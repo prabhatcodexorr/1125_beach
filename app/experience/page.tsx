@@ -28,7 +28,7 @@ export default function EventsPage() {
 
 
       {/* Event Cards */}
-      <section className="max-w-[1400px]  mx-auto px-6 py-20  md:px-10 lg:px-12 ">
+      <section className="max-w-[1400px]  mx-auto px-6 py-20  md:px-10 lg:px-7 ">
         <div className="grid md:grid-cols-2 gap-8">
           {/* Wedding */}
           <div className="bg-white rounded-2xl overflow-hidden border border-gray-200">
@@ -90,8 +90,8 @@ export default function EventsPage() {
 
       {/* CTA Section */}
       <section className="max-w-[900px] mx-auto px-6 pb-24">
-        <div className="bg-[#FAF0E2] rounded-2xl p-12 text-center">
-          <p className="text-[11px] font-[700] font-manrope-regular uppercase tracking-[2px] text-[#AE2020]">
+        <div className="bg-[#FAF0E2]  rounded-2xl p-12 text-center">
+          <p className="text-[11px] font-[700] font-bold font-manrope-regular uppercase tracking-[2px] text-[#AE2020]">
             Get In Touch
           </p>
 
